@@ -5,7 +5,9 @@
 <?import java.net.URL?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.text.Text?>
 <StackPane styleClass="background" xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:controller="com.example.warringnationsbutgood.Controller">
@@ -17,5 +19,9 @@
         </image>
     </ImageView>
 
-    <Button translateY="100" styleClass="menu_buttons" text="Back to lobby" onAction="#lobbyClick"/>
+    <VBox translateY="-270" styleClass="title_container">
+        <Text styleClass="title" text="How to Play?!?!?!?!!"/>
+    </VBox>
+
+    <Button translateY="50" styleClass="menu_buttons" text="Back to lobby" onAction="#lobbyClick"/>
 </StackPane>

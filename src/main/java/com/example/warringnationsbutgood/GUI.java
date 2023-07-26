@@ -17,21 +17,6 @@ public class GUI extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
         FXMLLoader fxmlLoader = new FXMLLoader(GUI.class.getResource("lobby.fxml"));
-        //audio odesnt work
-        //InputStream inputStream = getClass().getClassLoader().getResourceAsStream("assets/Battle.wav");
-        //AudioInputStream audioStream = AudioSystem.getAudioInputStream(inputStream);
-        /*
-        AudioFormat audioFormat = audioStream.getFormat();
-        DataLine.Info info = new DataLine.Info(SourceDataLine.class, audioFormat);
-        Clip audioClip = (Clip) AudioSystem.getLine(info);
-        audioClip.addLineListener((LineListener) this);
-        audioClip.open(audioStream);
-        audioClip.start();
-        audioClip.loop(Clip.LOOP_CONTINUOUSLY);
-        audioClip.close();
-        audioStream.close();
-         */
-
         scene = new Scene(fxmlLoader.load(), size.getWidth(), size.getHeight());
         primaryStage.setScene(scene);
         primaryStage.setTitle("Warring Nations");

@@ -5,7 +5,9 @@
 <?import java.net.URL?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.text.Text?>
 <StackPane styleClass="background" xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:controller="com.example.warringnationsbutgood.Controller">
@@ -16,6 +18,10 @@
             <Image url="@./assets/background/background1.jpg" />
         </image>
     </ImageView>
+
+    <VBox>
+        <Text styleClass="title" text="Game Settings"/>
+    </VBox>
 
     <Button translateY="200" styleClass="menu_buttons" text="Back to lobby" onAction="#lobbyClick"/>
 </StackPane>
