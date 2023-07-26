@@ -11,33 +11,36 @@ import java.util.Objects;
 
 public class Controller {
 
-    private Parent rulesRoot;
-    private Stage rulesStage;
-    private Scene rulesScene;
+    private Parent newRoot;
+    private Stage newStage;
+    private Scene newScene;
 
     @FXML
     protected void hostButtonClick(ActionEvent event) throws IOException {
-        rulesRoot = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource("host.fxml")));
-        rulesStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        rulesScene = new Scene(rulesRoot, GUI.getWidth(), GUI.getHeight());
-        rulesStage.setScene(rulesScene);
-        rulesStage.show();
+        newRoot = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource("host.fxml")));
+        newStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        newScene = new Scene(newRoot, GUI.getWidth(), GUI.getHeight());
+        newStage.setScene(newScene);
+        newStage.setFullScreen(true);
+        newStage.show();
     }
 
     @FXML
     protected void rules(ActionEvent event) throws IOException {
-        rulesRoot = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource("rules.fxml")));
-        rulesStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        rulesScene = new Scene(rulesRoot, GUI.getWidth(), GUI.getHeight());
-        rulesStage.setScene(rulesScene);
-        rulesStage.show();
+        newRoot = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource("rules.fxml")));
+        newStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        newScene = new Scene(newRoot, GUI.getWidth(), GUI.getHeight());
+        newStage.setScene(newScene);
+        newStage.setFullScreen(true);
+        newStage.show();
     }
 
     @FXML
     protected void lobbyClick(ActionEvent event) throws IOException {
-        rulesStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        rulesStage.setScene(GUI.getScene());
-        rulesStage.show();
+        newStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        newStage.setScene(GUI.getScene());
+        newStage.setFullScreen(true);
+        newStage.show();
     }
 
 }

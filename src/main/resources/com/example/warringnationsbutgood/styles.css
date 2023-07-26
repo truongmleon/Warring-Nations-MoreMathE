@@ -5,6 +5,7 @@
     -fx-font-weight: 700;
     -fx-font-size: 6em;
     -fx-effect: dropshadow(gaussian, #d1d1d1, 5, 0.1, 6.0, 0.0);
+    -fx-opacity: 1;
 }
 
 .title_container {
@@ -37,4 +38,15 @@
 
 .background {
     -fx-background-color: #0167a2;
+}
+
+#settings {
+    -fx-padding: 100px 0 0 100px;
+    -fx-max-width: 1000px;
+    -fx-max-height: 700px;
+    -fx-background-color: #fafafa;
+    -fx-opacity: 0.7;
+    -fx-background-radius: 80px;
+    -fx-padding: 20px 40px;
+    -fx-effect: dropshadow(gaussian, #fafafa, 5, 0.1, 0.0, 0.0);
 }

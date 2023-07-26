@@ -15,11 +15,12 @@ public class GUI extends Application {
     private static Scene scene;
 
     @Override
-    public void start(Stage primaryStage) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
+    public void start(Stage primaryStage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(GUI.class.getResource("lobby.fxml"));
         scene = new Scene(fxmlLoader.load(), size.getWidth(), size.getHeight());
         primaryStage.setScene(scene);
         primaryStage.setTitle("Warring Nations");
+        primaryStage.setFullScreen(true);
         primaryStage.show();
     }
 

@@ -19,7 +19,7 @@
         </image>
     </ImageView>
 
-    <VBox>
+    <VBox id="settings">
         <Text styleClass="title" text="Game Settings"/>
     </VBox>
 
