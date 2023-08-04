@@ -13,11 +13,14 @@
            fx:controller="com.example.warringnationsbutgood.Controller">
 
     <stylesheets><URL value="@styles.css"/></stylesheets>
+
     <ImageView>
         <image>
             <Image url="@./assets/background/background.png" />
         </image>
     </ImageView>
+
+    <ImageView fitWidth="1400.0" fitHeight="800" id="harp"></ImageView>
 
     <VBox translateY="-270" styleClass="title_container">
         <Text styleClass="title" text="How to Play?!?!?!?!!"/>

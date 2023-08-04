@@ -50,3 +50,8 @@
     -fx-padding: 20px 40px;
     -fx-effect: dropshadow(gaussian, #fafafa, 5, 0.1, 0.0, 0.0);
 }
+
+#harp {
+    -fx-max-width: 800px;
+    -fx-image: url('assets/background/harp.JPG');
+}
