@@ -26,5 +26,5 @@
         <Text styleClass="title" text="How to Play?!?!?!?!!"/>
     </VBox>
 
-    <Button translateY="50" styleClass="menu_buttons" text="Back to lobby" onAction="#lobbyClick"/>
+    <Button translateY="50" styleClass="menu_buttons" text="OK" onAction="#lobbyClick"/>
 </StackPane>

@@ -43,4 +43,24 @@ public class Controller {
         newStage.show();
     }
 
+    @FXML
+    protected void start(ActionEvent event) throws IOException {
+        newRoot = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource("rules.fxml")));
+        newStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        newScene = new Scene(newRoot, GUI.getWidth(), GUI.getHeight());
+        newStage.setScene(newScene);
+        newStage.setFullScreen(true);
+        newStage.show();
+    }
+
+    @FXML
+    protected void reset(ActionEvent event) throws IOException {
+        newRoot = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource("rules.fxml")));
+        newStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        newScene = new Scene(newRoot, GUI.getWidth(), GUI.getHeight());
+        newStage.setScene(newScene);
+        newStage.setFullScreen(true);
+        newStage.show();
+    }
+
 }
