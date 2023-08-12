@@ -6,8 +6,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.text.Text?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
 <StackPane styleClass="background" xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:controller="com.example.warringnationsbutgood.Controller">
@@ -23,6 +26,22 @@
         <Text styleClass="title" text="Game Settings"/>
     </VBox>
 
-    <Button translateY="200" styleClass="menu_buttons" text="Start Game" onAction="#start"/>
-    <Button translateY="200" styleClass="menu_buttons" text="Back to lobby" onAction="#lobbyClick"/>
+    <ComboBox fx:id="dropdown" layoutX="100" layoutY="100">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="2"/>
+                <String fx:value="3"/>
+                <String fx:value="4"/>
+                <String fx:value="5"/>
+                <String fx:value="6"/>
+                <String fx:value="7"/>
+                <String fx:value="8"/>
+                <String fx:value="9"/>
+                <String fx:value="10"/>
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+    <Button translateY="140" styleClass="menu_buttons" text="Start Game" onAction="#start"/>
+    <Button translateY="250" styleClass="menu_buttons" text="Back to lobby" onAction="#lobbyClick"/>
 </StackPane>
