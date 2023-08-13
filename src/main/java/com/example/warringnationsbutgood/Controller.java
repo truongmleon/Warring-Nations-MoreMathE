@@ -57,6 +57,9 @@ public class Controller {
         int playersCount = Integer.parseInt(players.getValue());
         String level = stage.getValue();
         int startingHitpoints = Integer.parseInt(hitpoints.getValue());
+
+        players.setVisible(false);
+
     }
 
     @FXML
