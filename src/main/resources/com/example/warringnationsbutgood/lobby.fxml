@@ -19,7 +19,7 @@
         <VBox translateY="-270" styleClass="title_container">
             <Text styleClass="title" text="Warring Nations"/>
         </VBox>
-        <Button translateY="100" styleClass="menu_buttons" text="Host Game :33" onAction="#hostButtonClick"/>
+        <Button translateY="100" styleClass="menu_buttons" text="Host Game" onAction="#hostButtonClick"/>
         <Button translateY="240" styleClass="menu_buttons" text="How to Play" onAction="#rules"/>
 </StackPane>
 

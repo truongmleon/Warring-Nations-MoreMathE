@@ -45,8 +45,8 @@
     -fx-padding: 100px 0 0 100px;
     -fx-max-width: 1000px;
     -fx-max-height: 700px;
-    -fx-background-color: #000000;
-    -fx-opacity: 0.3;
+    -fx-background-color: #111111;
+    -fx-opacity: 0.6;
     -fx-background-radius: 80px;
     -fx-padding: 20px 40px;
     -fx-effect: dropshadow(gaussian, #000000, 5, 0.1, 0.0, 0.0);
@@ -61,4 +61,5 @@
     -fx-font-family: 'Roboto', sans-serif;
     -fx-width: 300px;
     -fx-font-size: 2em;
+    -fx-background-color: #fafafa;
 }

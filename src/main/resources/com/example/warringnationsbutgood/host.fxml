@@ -11,6 +11,7 @@
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
 
+<?import javafx.scene.layout.GridPane?>
 <StackPane styleClass="background" xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:controller="com.example.warringnationsbutgood.Controller">
@@ -28,21 +29,61 @@
         <Text styleClass="title" text="Game Settings"/>
     </VBox>
 
-    <ComboBox id="dropdown" value="2">
-        <items>
-            <FXCollections fx:factory="observableArrayList">
-                <String fx:value="2"/>
-                <String fx:value="3"/>
-                <String fx:value="4"/>
-                <String fx:value="5"/>
-                <String fx:value="6"/>
-                <String fx:value="7"/>
-                <String fx:value="8"/>
-                <String fx:value="9"/>
-                <String fx:value="10"/>
-            </FXCollections>
-        </items>
-    </ComboBox>
+    <GridPane xmlns:fx="http://javafx.com/fxml" prefHeight="200" prefWidth="320" alignment="center" hgap="10" vgap="10">
+        <Text GridPane.columnIndex="0" GridPane.rowIndex="0" text="Player Count: "/>
+
+        <VBox GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <ComboBox id="dropdown" value="2">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="2"/>
+                        <String fx:value="3"/>
+                        <String fx:value="4"/>
+                        <String fx:value="5"/>
+                        <String fx:value="6"/>
+                        <String fx:value="7"/>
+                        <String fx:value="8"/>
+                        <String fx:value="9"/>
+                        <String fx:value="10"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+        </VBox>
+
+        <Text GridPane.columnIndex="0" GridPane.rowIndex="1" text="Starting Stage: "/>
+
+        <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <ComboBox id="dropdown" value="Arithmetic">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Arithmetic"/>
+                        <String fx:value="Geometry"/>
+                        <String fx:value="Algebruh"/>
+                        <String fx:value="Calculus"/>
+                        <String fx:value="Abstract"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+        </VBox>
+
+        <Text GridPane.columnIndex="0" GridPane.rowIndex="2" text="Starting Hitpoints: "/>
+
+        <VBox GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <ComboBox id="dropdown" value="25">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="10"/>
+                        <String fx:value="15"/>
+                        <String fx:value="25"/>
+                        <String fx:value="40"/>
+                        <String fx:value="50"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+        </VBox>
+
+    </GridPane>
+
 
     <Button translateY="140" styleClass="menu_buttons" text="Start Game" onAction="#start"/>
     <Button translateY="250" styleClass="menu_buttons" text="Back to lobby" onAction="#lobbyClick"/>
