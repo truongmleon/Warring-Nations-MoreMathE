@@ -85,6 +85,6 @@
     </GridPane>
 
 
-    <Button translateY="140" styleClass="menu_buttons" text="Start Game" onAction="#start"/>
+    <Button translateY="140" styleClass="menu_buttons" text="Continue" onAction="#go"/>
     <Button translateY="250" styleClass="menu_buttons" text="Back to lobby" onAction="#lobbyClick"/>
 </StackPane>

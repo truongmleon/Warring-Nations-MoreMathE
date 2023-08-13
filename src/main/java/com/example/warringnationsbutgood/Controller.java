@@ -44,7 +44,7 @@ public class Controller {
     }
 
     @FXML
-    protected void start(ActionEvent event) throws IOException {
+    protected void go(ActionEvent event) throws IOException {
         newRoot = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource("rules.fxml")));
         newStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         newScene = new Scene(newRoot, GUI.getWidth(), GUI.getHeight());
