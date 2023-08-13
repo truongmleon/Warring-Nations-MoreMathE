@@ -22,11 +22,13 @@
         </image>
     </ImageView>
 
-    <VBox id="settings">
+    <VBox id="settings" styleClass="title_container"></VBox>
+
+    <VBox translateY="-230" styleClass="title_container">
         <Text styleClass="title" text="Game Settings"/>
     </VBox>
 
-    <ComboBox fx:id="dropdown" value="2">
+    <ComboBox id="dropdown" value="2">
         <items>
             <FXCollections fx:factory="observableArrayList">
                 <String fx:value="2"/>
