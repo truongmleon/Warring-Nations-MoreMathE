@@ -7,7 +7,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
@@ -40,6 +43,9 @@ public class Controller {
 
     @FXML
     private Button back;
+
+    @FXML
+    private GridPane playerInfo;
 
     @FXML
     protected void hostButtonClick(ActionEvent event) throws IOException {
@@ -75,13 +81,15 @@ public class Controller {
         startingHitpoints = Integer.parseInt(hitpoints.getValue());
         level = stage.getValue();
 
-        if (!settingsMenu.isVisible()) {
-            getPlayers();
-        }
-
         settingsMenu.setVisible(false);
         lobby.setVisible(false);
         back.setVisible(true);
+
+        if (playerInfo.isVisible()) {
+            getPlayers();
+        } else {
+            playerInfo.setVisible(true);
+        }
     }
 
     @FXML
@@ -89,10 +97,30 @@ public class Controller {
         settingsMenu.setVisible(true);
         lobby.setVisible(true);
         back.setVisible(false);
+        playerInfo.setVisible(false);
     }
 
     private void getPlayers() {
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.setPrefSize(500, 200);
+        scrollPane.setId("-fx-background-color: transparent;");
 
+        GridPane menu = new GridPane();
+        menu.setPrefSize(450, 300);
+        menu.setVgap(10);
+        menu.setHgap(90);
+
+        Text name = new Text("Name");
+        Text email = new Text("Email");
+
+        name.getStyleClass().add("info");
+        email.getStyleClass().add("info");
+
+        menu.add(name, 1, 1);
+        menu.add(email, 2, 1);
+
+        scrollPane.setContent(menu);
+        playerInfo.getChildren().add(scrollPane);
     }
 
 }

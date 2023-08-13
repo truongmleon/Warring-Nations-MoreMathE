@@ -12,6 +12,7 @@
 <?import java.lang.String?>
 
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.AnchorPane?>
 <StackPane styleClass="background" xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:controller="com.example.warringnationsbutgood.Controller">
@@ -82,6 +83,10 @@
             </ComboBox>
         </VBox>
 
+    </GridPane>
+
+    <GridPane translateY="-30" id="playerInfo" alignment="center" fx:id="playerInfo" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+        <!-- Added content via Java -->
     </GridPane>
 
     <Button translateY="140" styleClass="menu_buttons" text="Continue" onAction="#go"/>

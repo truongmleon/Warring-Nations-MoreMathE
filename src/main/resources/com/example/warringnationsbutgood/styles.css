@@ -69,3 +69,14 @@
     -fx-fill: #fafafa;
     -fx-font-size: 2.4em;
 }
+
+.info {
+    -fx-font-family: 'Electrolize', sans-serif;
+    -fx-fill: #000000;
+    -fx-font-size: 2.4em;
+}
+
+#playerInfo {
+    -fx-background-color: transparent;
+    -fx-effect: dropshadow(gaussian, #000000, 5, 0.1, 0.0, 0.0);
+}
