@@ -57,7 +57,7 @@
     -fx-image: url('assets/background/harp.JPG');
 }
 
-#dropdown {
+.dropdown {
     -fx-font-family: 'Electrolize', sans-serif;
     -fx-width: 300px;
     -fx-font-size: 2em;

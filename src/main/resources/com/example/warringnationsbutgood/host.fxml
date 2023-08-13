@@ -33,7 +33,7 @@
         <Text styleClass="labels" GridPane.columnIndex="0" GridPane.rowIndex="0" text="Player Count: "/>
 
         <VBox GridPane.columnIndex="1" GridPane.rowIndex="0">
-            <ComboBox id="dropdown" value="2">
+            <ComboBox fx:id="players" styleClass="dropdown" value="2">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
                         <String fx:value="2"/>
@@ -53,7 +53,7 @@
         <Text styleClass="labels" GridPane.columnIndex="0" GridPane.rowIndex="1" text="Starting Stage: "/>
 
         <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
-            <ComboBox id="dropdown" value="Arithmetic">
+            <ComboBox fx:id="stage" styleClass="dropdown" value="Arithmetic">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
                         <String fx:value="Arithmetic"/>
@@ -69,7 +69,7 @@
         <Text styleClass="labels" GridPane.columnIndex="0" GridPane.rowIndex="2" text="Starting Hitpoints: "/>
 
         <VBox GridPane.columnIndex="1" GridPane.rowIndex="2">
-            <ComboBox id="dropdown" value="25">
+            <ComboBox fx:id="hitpoints" styleClass="dropdown" value="25">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
                         <String fx:value="10"/>
