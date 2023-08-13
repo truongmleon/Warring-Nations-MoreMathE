@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Silkscreen:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
 
 .title {
     -fx-font-family: 'Silkscreen', cursive;
@@ -58,8 +58,14 @@
 }
 
 #dropdown {
-    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-family: 'Electrolize', sans-serif;
     -fx-width: 300px;
     -fx-font-size: 2em;
     -fx-background-color: #fafafa;
+}
+
+.labels {
+    -fx-font-family: 'Electrolize', sans-serif;
+    -fx-fill: #fafafa;
+    -fx-font-size: 2em;
 }
