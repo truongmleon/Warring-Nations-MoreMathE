@@ -29,7 +29,7 @@
         <Text styleClass="title" text="Game Settings"/>
     </VBox>
 
-    <GridPane translateY="-30" xmlns:fx="http://javafx.com/fxml" prefHeight="200" prefWidth="320" alignment="center" hgap="10" vgap="30">
+    <GridPane fx:id="settingsMenu" translateY="-30" xmlns:fx="http://javafx.com/fxml" prefHeight="200" prefWidth="320" alignment="center" hgap="10" vgap="30">
         <Text styleClass="labels" GridPane.columnIndex="0" GridPane.rowIndex="0" text="Player Count: "/>
 
         <VBox GridPane.columnIndex="1" GridPane.rowIndex="0">
@@ -84,7 +84,7 @@
 
     </GridPane>
 
-
     <Button translateY="140" styleClass="menu_buttons" text="Continue" onAction="#go"/>
-    <Button translateY="250" styleClass="menu_buttons" text="Back to lobby" onAction="#lobbyClick"/>
+    <Button fx:id="lobby" translateY="250" styleClass="menu_buttons" text="Back to lobby" onAction="#lobbyClick"/>
+    <Button fx:id="back" translateY="250" styleClass="menu_buttons" text="Back" onAction="#back"/>
 </StackPane>

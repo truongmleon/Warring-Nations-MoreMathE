@@ -5,7 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
@@ -16,6 +18,12 @@ public class Controller {
     private Stage newStage;
     private Scene newScene;
 
+    //Results
+    private int playersCount;
+    private int startingHitpoints;
+    private String level;
+
+
     //Values from dropdown
     @FXML
     private ComboBox<String> players;
@@ -23,6 +31,15 @@ public class Controller {
     private ComboBox<String> stage;
     @FXML
     private ComboBox<String> hitpoints;
+
+    @FXML
+    private GridPane settingsMenu;
+
+    @FXML
+    private Button lobby;
+
+    @FXML
+    private Button back;
 
     @FXML
     protected void hostButtonClick(ActionEvent event) throws IOException {
@@ -54,22 +71,28 @@ public class Controller {
 
     @FXML
     protected void go(ActionEvent event) throws IOException {
-        int playersCount = Integer.parseInt(players.getValue());
-        String level = stage.getValue();
-        int startingHitpoints = Integer.parseInt(hitpoints.getValue());
+        playersCount = Integer.parseInt(players.getValue());
+        startingHitpoints = Integer.parseInt(hitpoints.getValue());
+        level = stage.getValue();
 
-        players.setVisible(false);
+        if (!settingsMenu.isVisible()) {
+            getPlayers();
+        }
 
+        settingsMenu.setVisible(false);
+        lobby.setVisible(false);
+        back.setVisible(true);
     }
 
     @FXML
-    protected void reset(ActionEvent event) throws IOException {
-        newRoot = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource("rules.fxml")));
-        newStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        newScene = new Scene(newRoot, GUI.getWidth(), GUI.getHeight());
-        newStage.setScene(newScene);
-        newStage.setFullScreen(true);
-        newStage.show();
+    protected void back(ActionEvent event) throws IOException {
+        settingsMenu.setVisible(true);
+        lobby.setVisible(true);
+        back.setVisible(false);
+    }
+
+    private void getPlayers() {
+
     }
 
 }
