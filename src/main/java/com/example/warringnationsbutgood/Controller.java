@@ -147,7 +147,7 @@ public class Controller {
             enterName.getStyleClass().add("text_field");
             enterEmail.getStyleClass().add("text_field");
 
-            enterEmail.setText("sn@kent.k12.wa.us");
+            enterEmail.setText("sn3@kent.k12.wa.us");
 
             inputs.add(enterName);
             inputs.add(enterEmail);
