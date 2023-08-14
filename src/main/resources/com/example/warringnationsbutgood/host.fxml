@@ -85,7 +85,7 @@
 
     </GridPane>
 
-    <GridPane translateY="-30" id="playerInfo" alignment="center" fx:id="playerInfo" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <GridPane visible="false" translateY="-30" id="playerInfo" alignment="center" fx:id="playerInfo" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
         <!-- Added content via Java -->
     </GridPane>
 

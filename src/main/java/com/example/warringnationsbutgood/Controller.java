@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -52,6 +53,7 @@ public class Controller {
         newRoot = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource("host.fxml")));
         newStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         newScene = new Scene(newRoot, GUI.getWidth(), GUI.getHeight());
+        newStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
         newStage.setScene(newScene);
         newStage.setFullScreen(true);
         newStage.show();
@@ -62,6 +64,7 @@ public class Controller {
         newRoot = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource("rules.fxml")));
         newStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         newScene = new Scene(newRoot, GUI.getWidth(), GUI.getHeight());
+        newStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
         newStage.setScene(newScene);
         newStage.setFullScreen(true);
         newStage.show();
@@ -70,6 +73,7 @@ public class Controller {
     @FXML
     protected void lobbyClick(ActionEvent event) throws IOException {
         newStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        newStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
         newStage.setScene(GUI.getScene());
         newStage.setFullScreen(true);
         newStage.show();
@@ -85,11 +89,8 @@ public class Controller {
         lobby.setVisible(false);
         back.setVisible(true);
 
-        if (playerInfo.isVisible()) {
-            getPlayers();
-        } else {
-            playerInfo.setVisible(true);
-        }
+        playerInfo.setVisible(true);
+        getPlayers();
     }
 
     @FXML
