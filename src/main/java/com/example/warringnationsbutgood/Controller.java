@@ -28,6 +28,9 @@ public class Controller {
     private int startingHitpoints;
     private String level;
 
+    //Names and Emails
+    private String[] names;
+    private String[] emails;
 
     //Values from dropdown
     @FXML
@@ -47,9 +50,12 @@ public class Controller {
     private Button back;
 
     @FXML
+    private Button go;
+
+    @FXML
     private GridPane playerInfo;
 
-    private ArrayList<TextField> inputs = new ArrayList<TextField>();
+    private ArrayList<TextField> inputs;
 
     @FXML
     protected void hostButtonClick(ActionEvent event) throws IOException {
@@ -85,19 +91,22 @@ public class Controller {
     @FXML
     protected void go(ActionEvent event) throws IOException {
         if (playerInfo.isVisible()) {
+            playerInfo.setVisible(false);
+            back.setVisible(false);
+            go.setVisible(false);
             collectInfo();
+        } else {
+            playersCount = Integer.parseInt(players.getValue());
+            startingHitpoints = Integer.parseInt(hitpoints.getValue());
+            level = stage.getValue();
+
+            settingsMenu.setVisible(false);
+            lobby.setVisible(false);
+            back.setVisible(true);
+
+            playerInfo.setVisible(true);
+            getPlayers();
         }
-
-        playersCount = Integer.parseInt(players.getValue());
-        startingHitpoints = Integer.parseInt(hitpoints.getValue());
-        level = stage.getValue();
-
-        settingsMenu.setVisible(false);
-        lobby.setVisible(false);
-        back.setVisible(true);
-
-        playerInfo.setVisible(true);
-        getPlayers();
     }
 
     @FXML
@@ -110,11 +119,11 @@ public class Controller {
 
     private void getPlayers() {
         ScrollPane scrollPane = new ScrollPane();
-        scrollPane.setPrefSize(500, 250);
+        scrollPane.setPrefSize(700, 250);
         scrollPane.setId("-fx-background-color: transparent;");
 
         GridPane menu = new GridPane();
-        menu.setPrefSize(450, 50 + 60 * playersCount);
+        menu.setPrefSize(600, 50 + 60 * playersCount);
         menu.setVgap(10);
         menu.setHgap(20);
 
@@ -126,13 +135,14 @@ public class Controller {
 
         menu.add(name, 1, 1);
         menu.add(email, 2, 1);
+        inputs = new ArrayList<TextField>();
 
         for (int i = 0; i < playersCount; i++) {
             TextField enterName = new TextField();
             TextField enterEmail = new TextField();
 
-            enterName.setPrefWidth(230);
-            enterEmail.setPrefWidth(230);
+            enterName.setPrefWidth(300);
+            enterEmail.setPrefWidth(300);
 
             enterName.getStyleClass().add("text_field");
             enterEmail.getStyleClass().add("text_field");
@@ -141,7 +151,6 @@ public class Controller {
 
             inputs.add(enterName);
             inputs.add(enterEmail);
-
             menu.add(enterName, 1, 2 + i);
             menu.add(enterEmail, 2, 2 + i);
         }
@@ -151,21 +160,21 @@ public class Controller {
     }
 
     private void collectInfo() {
+        names = new String[playersCount];
+        emails = new String[playersCount];
+
         for (int i = 0; i < inputs.size(); i++) {
             String data = inputs.get(i).getText();
 
-            if (data.isEmpty() || data.equals("sn@kent.k12.wa.us")) {
-                break;
-            }
-
-            if (i % 2 == 1) {
+            if (i % 2 == 0) {
                 //Name
-
+                names[i / 2] = data;
             } else {
                 //Email
-
+                emails[i / 2] = data;
             }
         }
+
     }
 
 }

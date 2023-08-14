@@ -88,7 +88,7 @@
         <!-- Added content via Java -->
     </GridPane>
 
-    <Button translateY="165" styleClass="menu_buttons" text="Continue" onAction="#go"/>
+    <Button fx:id="go" translateY="165" styleClass="menu_buttons" text="Continue" onAction="#go"/>
     <Button fx:id="lobby" translateY="275" styleClass="menu_buttons" text="Back to lobby" onAction="#lobbyClick"/>
     <Button fx:id="back" translateY="275" styleClass="menu_buttons" text="Back" onAction="#back"/>
 </StackPane>
