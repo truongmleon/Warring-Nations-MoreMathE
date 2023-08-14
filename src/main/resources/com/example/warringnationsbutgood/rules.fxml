@@ -22,9 +22,9 @@
 
     <ImageView fitWidth="1400.0" fitHeight="800" id="harp"></ImageView>
 
-    <VBox translateY="-270" styleClass="title_container">
+    <VBox translateY="-270" styleClass="titleContainer">
         <Text styleClass="title" text="How to Play?!?!?!?!!"/>
     </VBox>
 
-    <Button translateY="50" styleClass="menu_buttons" text="OK" onAction="#lobbyClick"/>
+    <Button translateY="50" styleClass="menuButtons" text="OK" onAction="#lobbyClick"/>
 </StackPane>

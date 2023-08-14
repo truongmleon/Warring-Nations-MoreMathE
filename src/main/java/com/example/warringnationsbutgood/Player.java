@@ -7,6 +7,7 @@ public class Player {
     private int[] factors = {9, 14, 19, 29, 39};
     private int health;
     private String stage;
+    private String name;
     private String email;
 
     private int attack;
@@ -18,9 +19,10 @@ public class Player {
 
     private boolean attackFailed;
 
-    public Player(int hitpoints, String stage, String email) {
+    public Player(int hitpoints, String stage, String name, String email) {
         this.health = hitpoints;
         this.stage = stage;
+        this.name = name;
         this.email = email;
 
         if (!stage.equals("Arithmetic")) {

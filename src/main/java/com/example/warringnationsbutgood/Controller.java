@@ -32,6 +32,8 @@ public class Controller {
     private String[] names;
     private String[] emails;
 
+    private ArrayList<TextField> inputs;
+
     //Values from dropdown
     @FXML
     private ComboBox<String> players;
@@ -55,7 +57,8 @@ public class Controller {
     @FXML
     private GridPane playerInfo;
 
-    private ArrayList<TextField> inputs;
+    @FXML
+    private GridPane gameMenu;
 
     @FXML
     protected void hostButtonClick(ActionEvent event) throws IOException {
@@ -135,6 +138,7 @@ public class Controller {
 
         menu.add(name, 1, 1);
         menu.add(email, 2, 1);
+
         inputs = new ArrayList<TextField>();
 
         for (int i = 0; i < playersCount; i++) {
@@ -144,8 +148,8 @@ public class Controller {
             enterName.setPrefWidth(300);
             enterEmail.setPrefWidth(300);
 
-            enterName.getStyleClass().add("text_field");
-            enterEmail.getStyleClass().add("text_field");
+            enterName.getStyleClass().add("textField");
+            enterEmail.getStyleClass().add("textField");
 
             enterEmail.setText("sn3@kent.k12.wa.us");
 
@@ -160,6 +164,21 @@ public class Controller {
     }
 
     private void collectInfo() {
+        GridPane menu = new GridPane();
+        menu.setPrefSize(600, 50 + 60 * playersCount);
+        menu.setVgap(10);
+        menu.setHgap(20);
+
+        Text[] name = {new Text("Name"), new Text("Hitpoints"), new Text("Used Mana"), new Text("Status")};
+
+        for (int k = 0; k < name.length; k++) {
+            name[k].getStyleClass().add("titleGame");
+            menu.add(name[k], k, 0);
+        }
+
+        gameMenu.setVisible(true);
+        gameMenu.getChildren().add(menu);
+
         names = new String[playersCount];
         emails = new String[playersCount];
 
@@ -175,6 +194,10 @@ public class Controller {
             }
         }
 
+        for (int j = 0; j < playersCount; j++) {
+            Player p1 = new Player(startingHitpoints, level, names[j], emails[j]);
+
+        }
     }
 
 }

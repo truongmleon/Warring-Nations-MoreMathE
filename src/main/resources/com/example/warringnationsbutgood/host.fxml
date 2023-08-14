@@ -23,9 +23,9 @@
         </image>
     </ImageView>
 
-    <VBox id="settings" styleClass="title_container"></VBox>
+    <VBox id="settings" styleClass="titleContainer"></VBox>
 
-    <VBox translateY="-255" styleClass="title_container">
+    <VBox translateY="-255" styleClass="titleContainer">
         <Text styleClass="title" text="Game Settings"/>
     </VBox>
 
@@ -88,7 +88,11 @@
         <!-- Added content via Java -->
     </GridPane>
 
-    <Button fx:id="go" translateY="165" styleClass="menu_buttons" text="Continue" onAction="#go"/>
-    <Button fx:id="lobby" translateY="275" styleClass="menu_buttons" text="Back to lobby" onAction="#lobbyClick"/>
-    <Button fx:id="back" translateY="275" styleClass="menu_buttons" text="Back" onAction="#back"/>
+    <GridPane visible="false" translateY="-30" id="gameMenu" alignment="center" fx:id="gameMenu" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+        <!-- Added content via Java -->
+    </GridPane>
+
+    <Button fx:id="go" translateY="165" styleClass="menuButtons" text="Continue" onAction="#go"/>
+    <Button fx:id="lobby" translateY="275" styleClass="menuButtons" text="Back to lobby" onAction="#lobbyClick"/>
+    <Button fx:id="back" translateY="275" styleClass="menuButtons" text="Back" onAction="#back"/>
 </StackPane>

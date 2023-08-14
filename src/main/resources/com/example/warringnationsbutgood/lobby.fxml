@@ -16,10 +16,10 @@
             </image>
         </ImageView>
 
-        <VBox translateY="-270" styleClass="title_container">
+        <VBox translateY="-270" styleClass="titleContainer">
             <Text styleClass="title" text="Warring Nations"/>
         </VBox>
-        <Button translateY="100" styleClass="menu_buttons" text="Host Game" onAction="#hostButtonClick"/>
-        <Button translateY="240" styleClass="menu_buttons" text="How to Play" onAction="#rules"/>
+        <Button translateY="100" styleClass="menuButtons" text="Host Game" onAction="#hostButtonClick"/>
+        <Button translateY="240" styleClass="menuButtons" text="How to Play" onAction="#rules"/>
 </StackPane>
 
