@@ -8,9 +8,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -103,13 +103,13 @@ public class Controller {
 
     private void getPlayers() {
         ScrollPane scrollPane = new ScrollPane();
-        scrollPane.setPrefSize(500, 200);
+        scrollPane.setPrefSize(500, 250);
         scrollPane.setId("-fx-background-color: transparent;");
 
         GridPane menu = new GridPane();
-        menu.setPrefSize(450, 300);
+        menu.setPrefSize(450, 50 + 60 * playersCount);
         menu.setVgap(10);
-        menu.setHgap(90);
+        menu.setHgap(20);
 
         Text name = new Text("Name");
         Text email = new Text("Email");
@@ -119,6 +119,22 @@ public class Controller {
 
         menu.add(name, 1, 1);
         menu.add(email, 2, 1);
+
+        for (int i = 0; i < playersCount; i++) {
+            TextField enterName = new TextField();
+            TextField enterEmail = new TextField();
+
+            enterName.setPrefWidth(230);
+            enterEmail.setPrefWidth(230);
+
+            enterName.getStyleClass().add("text_field");
+            enterEmail.getStyleClass().add("text_field");
+
+            enterEmail.setText("sn@kent.k12.wa.us");
+
+            menu.add(enterName, 1, 2 + i);
+            menu.add(enterEmail, 2, 2 + i);
+        }
 
         scrollPane.setContent(menu);
         playerInfo.getChildren().add(scrollPane);

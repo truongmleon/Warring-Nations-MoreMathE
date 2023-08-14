@@ -10,9 +10,8 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
-
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.AnchorPane?>
+
 <StackPane styleClass="background" xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:controller="com.example.warringnationsbutgood.Controller">
@@ -26,7 +25,7 @@
 
     <VBox id="settings" styleClass="title_container"></VBox>
 
-    <VBox translateY="-230" styleClass="title_container">
+    <VBox translateY="-255" styleClass="title_container">
         <Text styleClass="title" text="Game Settings"/>
     </VBox>
 
@@ -89,7 +88,7 @@
         <!-- Added content via Java -->
     </GridPane>
 
-    <Button translateY="140" styleClass="menu_buttons" text="Continue" onAction="#go"/>
-    <Button fx:id="lobby" translateY="250" styleClass="menu_buttons" text="Back to lobby" onAction="#lobbyClick"/>
-    <Button fx:id="back" translateY="250" styleClass="menu_buttons" text="Back" onAction="#back"/>
+    <Button translateY="165" styleClass="menu_buttons" text="Continue" onAction="#go"/>
+    <Button fx:id="lobby" translateY="275" styleClass="menu_buttons" text="Back to lobby" onAction="#lobbyClick"/>
+    <Button fx:id="back" translateY="275" styleClass="menu_buttons" text="Back" onAction="#back"/>
 </StackPane>
