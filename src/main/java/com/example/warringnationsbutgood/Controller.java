@@ -14,6 +14,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Controller {
@@ -48,6 +49,8 @@ public class Controller {
     @FXML
     private GridPane playerInfo;
 
+    private ArrayList<TextField> inputs = new ArrayList<TextField>();
+
     @FXML
     protected void hostButtonClick(ActionEvent event) throws IOException {
         newRoot = FXMLLoader.load(Objects.requireNonNull(Controller.class.getResource("host.fxml")));
@@ -81,6 +84,10 @@ public class Controller {
 
     @FXML
     protected void go(ActionEvent event) throws IOException {
+        if (playerInfo.isVisible()) {
+            collectInfo();
+        }
+
         playersCount = Integer.parseInt(players.getValue());
         startingHitpoints = Integer.parseInt(hitpoints.getValue());
         level = stage.getValue();
@@ -132,12 +139,33 @@ public class Controller {
 
             enterEmail.setText("sn@kent.k12.wa.us");
 
+            inputs.add(enterName);
+            inputs.add(enterEmail);
+
             menu.add(enterName, 1, 2 + i);
             menu.add(enterEmail, 2, 2 + i);
         }
 
         scrollPane.setContent(menu);
         playerInfo.getChildren().add(scrollPane);
+    }
+
+    private void collectInfo() {
+        for (int i = 0; i < inputs.size(); i++) {
+            String data = inputs.get(i).getText();
+
+            if (data.isEmpty() || data.equals("sn@kent.k12.wa.us")) {
+                break;
+            }
+
+            if (i % 2 == 1) {
+                //Name
+
+            } else {
+                //Email
+
+            }
+        }
     }
 
 }
