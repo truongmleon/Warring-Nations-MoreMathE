@@ -12,6 +12,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -34,6 +35,9 @@ public class Controller {
     private String[] emails;
 
     private ArrayList<TextField> inputs;
+
+    @FXML
+    private VBox gameTitle;
 
     //Values from dropdown
     @FXML
@@ -98,6 +102,7 @@ public class Controller {
             playerInfo.setVisible(false);
             back.setVisible(false);
             go.setVisible(false);
+            gameTitle.setVisible(false);
             collectInfo();
         } else {
             playersCount = Integer.parseInt(players.getValue());
@@ -166,17 +171,17 @@ public class Controller {
 
     private void collectInfo() {
         GridPane menu = new GridPane();
-        menu.setPrefSize(750, 50 + 60 * playersCount);
+        menu.setPrefSize(750, 50 + 60 * 8);
         menu.setVgap(10);
         menu.setHgap(50);
         menu.setId("gamePane");
         menu.setAlignment(Pos.CENTER);
 
-        Text[] name = {new Text("Name"), new Text("Hitpoints"), new Text("Used Mana"), new Text("Status")};
+        Text[] titles = {new Text("Name"), new Text("Hitpoints"), new Text("Used Mana"), new Text("Status")};
 
-        for (int k = 0; k < name.length; k++) {
-            name[k].getStyleClass().add("titleGame");
-            menu.add(name[k], k, 0);
+        for (int k = 0; k < titles.length; k++) {
+            titles[k].getStyleClass().add("titleGame");
+            menu.add(titles[k], k, 0);
         }
 
         names = new String[playersCount];
@@ -194,15 +199,21 @@ public class Controller {
             }
         }
 
-        for (int j = 0; j < playersCount; j++) {
-            Player p1 = new Player(j + 1, startingHitpoints, level, "SAFE", names[j], emails[j]);
+        for (int j = 0; j < 8; j++) {
             Button button = new Button();
             Text health = new Text(Integer.toString(startingHitpoints));
             Text mana = new Text("0");
             Text status = new Text("SAFE");
 
-            button.setText(j + 1 + " - " + names[j]);
-            button.getStyleClass().add("nameButtons");
+            try {
+                Player p1 = new Player(j + 1, startingHitpoints, level, "SAFE", names[j], emails[j]);
+                button.setText(j + 1 + " - " + names[j]);
+                button.getStyleClass().add("nameButtons");
+            } catch (Exception e) {
+                button.setText(j + 1 + " - ");
+                button.getStyleClass().add("nameButtons");
+                button.setDisable(true);
+            }
 
             health.getStyleClass().add("stats");
             mana.getStyleClass().add("stats");

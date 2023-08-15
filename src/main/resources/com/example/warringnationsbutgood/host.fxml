@@ -25,7 +25,7 @@
 
     <VBox id="settings" styleClass="titleContainer"></VBox>
 
-    <VBox translateY="-255" styleClass="titleContainer">
+    <VBox fx:id="gameTitle" translateY="-255" styleClass="titleContainer">
         <Text styleClass="title" text="Warring Nations"/>
     </VBox>
 
@@ -43,8 +43,6 @@
                         <String fx:value="6"/>
                         <String fx:value="7"/>
                         <String fx:value="8"/>
-                        <String fx:value="9"/>
-                        <String fx:value="10"/>
                     </FXCollections>
                 </items>
             </ComboBox>
@@ -88,7 +86,7 @@
         <!-- Added content via Java -->
     </GridPane>
 
-    <GridPane visible="false" translateY="-50" translateX="-100"  id="gameMenu" alignment="center" fx:id="gameMenu" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <GridPane visible="false" translateY="-50" translateX="-100"  id="gameMenu" alignment="center" fx:id="gameMenu" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
         <!-- Added content via Java -->
     </GridPane>
 

@@ -99,10 +99,17 @@
 .nameButtons {
     -fx-background-color: #424549;
     -fx-text-fill: #fafafa;
+    -fx-effect: dropshadow(gaussian, #424549, 5, 0.1, 0.0, 0.0);
+}
+
+.nameButtons:hover {
+    -fx-translateY: -8px;
+    -fx-scale-y: 1.05;
+    -fx-scale-x: 1.05;
 }
 
 .stats {
     -fx-font-family: 'Electrolize', sans-serif;
-    -fx-font-size: 1.6em;
+    -fx-font-size: 1.8em;
     -fx-fill: #fafafa;
 }
