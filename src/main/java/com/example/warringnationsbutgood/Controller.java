@@ -2,6 +2,7 @@ package com.example.warringnationsbutgood;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -165,9 +166,11 @@ public class Controller {
 
     private void collectInfo() {
         GridPane menu = new GridPane();
-        menu.setPrefSize(600, 50 + 60 * playersCount);
+        menu.setPrefSize(750, 50 + 60 * playersCount);
         menu.setVgap(10);
-        menu.setHgap(20);
+        menu.setHgap(50);
+        menu.setId("gamePane");
+        menu.setAlignment(Pos.CENTER);
 
         Text[] name = {new Text("Name"), new Text("Hitpoints"), new Text("Used Mana"), new Text("Status")};
 
@@ -175,9 +178,6 @@ public class Controller {
             name[k].getStyleClass().add("titleGame");
             menu.add(name[k], k, 0);
         }
-
-        gameMenu.setVisible(true);
-        gameMenu.getChildren().add(menu);
 
         names = new String[playersCount];
         emails = new String[playersCount];
@@ -195,9 +195,27 @@ public class Controller {
         }
 
         for (int j = 0; j < playersCount; j++) {
-            Player p1 = new Player(startingHitpoints, level, names[j], emails[j]);
+            Player p1 = new Player(j + 1, startingHitpoints, level, "SAFE", names[j], emails[j]);
+            Button button = new Button();
+            Text health = new Text(Integer.toString(startingHitpoints));
+            Text mana = new Text("0");
+            Text status = new Text("SAFE");
 
+            button.setText(j + 1 + " - " + names[j]);
+            button.getStyleClass().add("nameButtons");
+
+            health.getStyleClass().add("stats");
+            mana.getStyleClass().add("stats");
+            status.getStyleClass().add("stats");
+
+            menu.add(button, 0, j + 1);
+            menu.add(health, 1, j + 1);
+            menu.add(mana, 2, j + 1);
+            menu.add(status, 3, j + 1);
         }
+
+        gameMenu.setVisible(true);
+        gameMenu.getChildren().add(menu);
     }
 
 }

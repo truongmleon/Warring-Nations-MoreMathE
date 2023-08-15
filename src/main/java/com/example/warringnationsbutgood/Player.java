@@ -5,8 +5,12 @@ public class Player {
     private String[] stages = {"Arithmetic", "Geometry", "Algebruh", "Calculus", "Abstract"};
     private int[] manaForStage = {15, 35, 60, 90};
     private int[] factors = {9, 14, 19, 29, 39};
+
+    private int id;
     private int health;
     private String stage;
+
+    private String status;
     private String name;
     private String email;
 
@@ -19,9 +23,11 @@ public class Player {
 
     private boolean attackFailed;
 
-    public Player(int hitpoints, String stage, String name, String email) {
+    public Player(int id, int hitpoints, String stage, String status, String name, String email) {
+        this.id = id;
         this.health = hitpoints;
         this.stage = stage;
+        this.status = status;
         this.name = name;
         this.email = email;
 

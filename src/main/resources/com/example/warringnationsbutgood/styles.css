@@ -81,12 +81,28 @@
     -fx-effect: dropshadow(gaussian, #000000, 5, 0.1, 0.0, 0.0);
 }
 
-.textField {
+.textField, .nameButtons {
     -fx-font-family: 'Electrolize', sans-serif;
     -fx-font-size: 1.6em;
 }
 
 .titleGame {
     -fx-font-family: 'Electrolize', sans-serif;
-    -fx-font-size: 2em;
+    -fx-font-size: 2.5em;
+    -fx-fill: #fafafa;
+}
+
+#gamePane {
+    -fx-border-color: #ffffff;
+}
+
+.nameButtons {
+    -fx-background-color: #424549;
+    -fx-text-fill: #fafafa;
+}
+
+.stats {
+    -fx-font-family: 'Electrolize', sans-serif;
+    -fx-font-size: 1.6em;
+    -fx-fill: #fafafa;
 }

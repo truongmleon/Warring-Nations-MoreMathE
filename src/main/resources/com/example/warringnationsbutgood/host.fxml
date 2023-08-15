@@ -26,7 +26,7 @@
     <VBox id="settings" styleClass="titleContainer"></VBox>
 
     <VBox translateY="-255" styleClass="titleContainer">
-        <Text styleClass="title" text="Game Settings"/>
+        <Text styleClass="title" text="Warring Nations"/>
     </VBox>
 
     <GridPane fx:id="settingsMenu" translateY="-30" xmlns:fx="http://javafx.com/fxml" prefHeight="200" prefWidth="320" alignment="center" hgap="10" vgap="30">
@@ -88,7 +88,7 @@
         <!-- Added content via Java -->
     </GridPane>
 
-    <GridPane visible="false" translateY="-30" id="gameMenu" alignment="center" fx:id="gameMenu" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <GridPane visible="false" translateY="-50" translateX="-100"  id="gameMenu" alignment="center" fx:id="gameMenu" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
         <!-- Added content via Java -->
     </GridPane>
 
