@@ -26,13 +26,11 @@ public class Controller {
     private Scene newScene;
 
     //Results
-    private int playersCount;
-    private int startingHitpoints;
+    private int playersCount, startingHitpoints;
     private String level;
 
     //Names and Emails
-    private String[] names;
-    private String[] emails;
+    private String[] names, emails;
 
     private ArrayList<TextField> inputs;
 
@@ -41,29 +39,16 @@ public class Controller {
 
     //Values from dropdown
     @FXML
-    private ComboBox<String> players;
-    @FXML
-    private ComboBox<String> stage;
-    @FXML
-    private ComboBox<String> hitpoints;
+    private ComboBox<String> players, stage, hitpoints;
 
     @FXML
     private GridPane settingsMenu;
 
     @FXML
-    private Button lobby;
+    private Button lobby, back, go;
 
     @FXML
-    private Button back;
-
-    @FXML
-    private Button go;
-
-    @FXML
-    private GridPane playerInfo;
-
-    @FXML
-    private GridPane gameMenu;
+    private GridPane playerInfo, gameMenu, actionMenu;
 
     @FXML
     protected void hostButtonClick(ActionEvent event) throws IOException {
@@ -171,13 +156,20 @@ public class Controller {
 
     private void collectInfo() {
         GridPane menu = new GridPane();
+        GridPane actions = new GridPane();
         menu.setPrefSize(750, 50 + 60 * 8);
         menu.setVgap(10);
         menu.setHgap(50);
         menu.setId("gamePane");
         menu.setAlignment(Pos.CENTER);
 
-        Text[] titles = {new Text("Name"), new Text("Hitpoints"), new Text("Used Mana"), new Text("Status")};
+        actions.setPrefSize(240, 100);
+        actions.setVgap(10);
+        actions.setHgap(50);
+        actions.setAlignment(Pos.CENTER);
+
+        final Text[] titles = {new Text("Name"), new Text("Hitpoints"), new Text("Used Mana"), new Text("Status")};
+        final Button[] buttonTitles = {new Button("Generate"), new Button("Calculate"), new Button("Mines")};
 
         for (int k = 0; k < titles.length; k++) {
             titles[k].getStyleClass().add("titleGame");
@@ -208,13 +200,12 @@ public class Controller {
             try {
                 Player p1 = new Player(j + 1, startingHitpoints, level, "SAFE", names[j], emails[j]);
                 button.setText(j + 1 + " - " + names[j]);
-                button.getStyleClass().add("nameButtons");
             } catch (Exception e) {
                 button.setText(j + 1 + " - ");
-                button.getStyleClass().add("nameButtons");
                 button.setDisable(true);
             }
 
+            button.getStyleClass().add("nameButtons");
             health.getStyleClass().add("stats");
             mana.getStyleClass().add("stats");
             status.getStyleClass().add("stats");
@@ -225,8 +216,21 @@ public class Controller {
             menu.add(status, 3, j + 1);
         }
 
+        for (int l = 0; l < 3; l++) {
+            buttonTitles[l].getStyleClass().add("actions");
+
+            if (l != 0) {
+                buttonTitles[l].setDisable(true);
+            }
+
+            actions.add(buttonTitles[l], 0, l);
+        }
+
         gameMenu.setVisible(true);
         gameMenu.getChildren().add(menu);
+
+        actionMenu.setVisible(true);
+        actionMenu.getChildren().add(actions);
     }
 
 }

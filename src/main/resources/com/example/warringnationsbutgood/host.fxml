@@ -86,7 +86,11 @@
         <!-- Added content via Java -->
     </GridPane>
 
-    <GridPane visible="false" translateY="-50" translateX="-100"  id="gameMenu" alignment="center" fx:id="gameMenu" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <GridPane visible="false" translateY="-50" translateX="-100" alignment="center" fx:id="gameMenu" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+        <!-- Added content via Java -->
+    </GridPane>
+
+    <GridPane visible="false" translateX="440" translateY="-150" alignment="center" fx:id="actionMenu" prefWidth="200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
         <!-- Added content via Java -->
     </GridPane>
 
