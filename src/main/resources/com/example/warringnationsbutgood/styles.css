@@ -117,3 +117,14 @@
     -fx-font-size: 1.8em;
     -fx-fill: #fafafa;
 }
+
+#stages > Text {
+    -fx-font-family: 'Electrolize', sans-serif;
+    -fx-font-size: 1.8em;
+}
+
+.arrow {
+    -fx-fill: #fafafa;
+}
+
+
