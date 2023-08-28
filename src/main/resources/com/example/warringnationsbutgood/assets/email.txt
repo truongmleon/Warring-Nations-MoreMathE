@@ -1,0 +1,18 @@
+===========================
+WARRING NATIONS
+===========================
+
+Stats this round:
+Attack: 2
+Defense: 9
+Mana: 1
+
+===========================
+
+You have 15 hp left
+You have 0 used mana
+You are in the Arithmetic stage
+
+===========================
+
+Respond to this email with attack [team/player], defend, or mana (manaing twice is not allowed).

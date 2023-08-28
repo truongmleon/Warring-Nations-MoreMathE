@@ -15,7 +15,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
@@ -112,6 +114,17 @@ public class Controller {
         lobby.setVisible(true);
         back.setVisible(false);
         playerInfo.setVisible(false);
+    }
+
+    private void generate(ActionEvent event) {
+        Desktop desktop = Desktop.getDesktop();
+        String message = "mailto:username@domain.com";
+        URI uri = URI.create(message);
+        try {
+            desktop.mail(uri);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void getPlayers() {
@@ -214,10 +227,8 @@ public class Controller {
             status.getStyleClass().add("stats");
 
             int index = stageNames.indexOf(level);
-            String color = "-fx-fill: " + colors[index] + ";";
-            System.out.println(color);
-            currentLevel.setStyle(color);
-            status.setStyle("fx-fill: #00FFFF;");
+            currentLevel.setStyle("-fx-fill: " + colors[index] + ";");
+            status.setStyle("-fx-fill: #00FFFF;");
 
             menu.add(button, 0, j + 1);
             menu.add(health, 1, j + 1);
@@ -228,6 +239,9 @@ public class Controller {
         for (int l = 0; l < 3; l++) {
             buttonTitles[l].getStyleClass().add("actions");
 
+            if (l == 0) {
+                buttonTitles[l].setOnAction(this::generate);
+            }
             if (l != 0) {
                 buttonTitles[l].setDisable(true);
             }
