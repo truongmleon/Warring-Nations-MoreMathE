@@ -94,17 +94,17 @@
         <!-- Added content via Java -->
     </GridPane>
 
-    <GridPane id="stages" translateY="250">
+    <GridPane visible="false" fx:id="stagesMenu" id="stages" translateY="705" translateX="180">
         <Text GridPane.columnIndex="1" styleClass="arrow" text="Stages: "/>
-        <Text GridPane.columnIndex="2" id="arithmetic">Arithmetic</Text>
+        <Text GridPane.columnIndex="2" id="arithmetic"> Arithmetic </Text>
         <Text GridPane.columnIndex="3" styleClass="arrow"> -> </Text>
-        <Text GridPane.columnIndex="4" id="geometry">Geometry</Text>
+        <Text GridPane.columnIndex="4" id="geometry"> Geometry </Text>
         <Text GridPane.columnIndex="5" styleClass="arrow"> -> </Text>
-        <Text GridPane.columnIndex="6" id="algebruh">Algebruh</Text>
+        <Text GridPane.columnIndex="6" id="algebruh"> Algebruh </Text>
         <Text GridPane.columnIndex="7" styleClass="arrow"> -> </Text>
-        <Text GridPane.columnIndex="8" id="aalculus">Calculus</Text>
+        <Text GridPane.columnIndex="8" id="calculus"> Calculus </Text>
         <Text GridPane.columnIndex="9" styleClass="arrow"> -> </Text>
-        <Text GridPane.columnIndex="10" id="abstract">Abstract</Text>
+        <Text GridPane.columnIndex="10" id="abstract"> Abstract </Text>
     </GridPane>
 
     <Button fx:id="go" translateY="165" styleClass="menuButtons" text="Continue" onAction="#go"/>

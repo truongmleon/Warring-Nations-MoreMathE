@@ -17,6 +17,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Controller {
@@ -27,10 +28,15 @@ public class Controller {
 
     //Results
     private int playersCount, startingHitpoints;
+
     private String level;
 
     //Names and Emails
     private String[] names, emails;
+
+    private final String[] colors = {"#00FFFF", "#FFFF00", "#ADFF2F", "#FF0000", "#FF00FF"};
+
+    private final ArrayList<String> stageNames = new ArrayList<>(Arrays.asList("Arithmetic", "Geometry", "Algebruh", "Calculus", "Abstract"));
 
     private ArrayList<TextField> inputs;
 
@@ -42,13 +48,10 @@ public class Controller {
     private ComboBox<String> players, stage, hitpoints;
 
     @FXML
-    private GridPane settingsMenu;
-
-    @FXML
     private Button lobby, back, go;
 
     @FXML
-    private GridPane playerInfo, gameMenu, actionMenu;
+    private GridPane playerInfo, gameMenu, actionMenu, settingsMenu, stagesMenu;
 
     @FXML
     protected void hostButtonClick(ActionEvent event) throws IOException {
@@ -168,7 +171,7 @@ public class Controller {
         actions.setHgap(50);
         actions.setAlignment(Pos.CENTER);
 
-        final Text[] titles = {new Text("Name"), new Text("Hitpoints"), new Text("Used Mana"), new Text("Status")};
+        final Text[] titles = {new Text("Name"), new Text("Hitpoints"), new Text("Stage"), new Text("Status")};
         final Button[] buttonTitles = {new Button("Generate"), new Button("Calculate"), new Button("Mines")};
 
         for (int k = 0; k < titles.length; k++) {
@@ -194,7 +197,7 @@ public class Controller {
         for (int j = 0; j < 8; j++) {
             Button button = new Button();
             Text health = new Text(Integer.toString(startingHitpoints));
-            Text mana = new Text("0");
+            Text currentLevel = new Text(level);
             Text status = new Text("SAFE");
 
             try {
@@ -207,12 +210,18 @@ public class Controller {
 
             button.getStyleClass().add("nameButtons");
             health.getStyleClass().add("stats");
-            mana.getStyleClass().add("stats");
+            currentLevel.getStyleClass().add("stats");
             status.getStyleClass().add("stats");
+
+            int index = stageNames.indexOf(level);
+            String color = "-fx-fill: " + colors[index] + ";";
+            System.out.println(color);
+            currentLevel.setStyle(color);
+            status.setStyle("fx-fill: #00FFFF;");
 
             menu.add(button, 0, j + 1);
             menu.add(health, 1, j + 1);
-            menu.add(mana, 2, j + 1);
+            menu.add(currentLevel, 2, j + 1);
             menu.add(status, 3, j + 1);
         }
 
@@ -231,6 +240,8 @@ public class Controller {
 
         actionMenu.setVisible(true);
         actionMenu.getChildren().add(actions);
+
+        stagesMenu.setVisible(true);
     }
 
 }
