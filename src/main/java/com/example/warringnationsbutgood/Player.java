@@ -23,7 +23,7 @@ public class Player {
 
     private boolean attackFailed;
 
-    public Player(int id, int hitpoints, String stage, String status, String name, String email) {
+    public Player(int id, int hitpoints, String stage, String status, String name) {
         this.id = id;
         this.health = hitpoints;
         this.stage = stage;

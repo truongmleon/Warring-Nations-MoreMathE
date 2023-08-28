@@ -30,18 +30,14 @@ public class Controller {
 
     //Results
     private int playersCount, startingHitpoints;
-
+    private int round = 0;
     private String level;
 
     //Names and Emails
     private String[] names, emails;
-
     private final String[] colors = {"#00FFFF", "#FFFF00", "#ADFF2F", "#FF0000", "#FF00FF"};
-
     private final ArrayList<String> stageNames = new ArrayList<>(Arrays.asList("Arithmetic", "Geometry", "Algebruh", "Calculus", "Abstract"));
-
     private ArrayList<TextField> inputs;
-
     @FXML
     private VBox gameTitle;
 
@@ -117,13 +113,17 @@ public class Controller {
     }
 
     private void generate(ActionEvent event) {
-        Desktop desktop = Desktop.getDesktop();
-        String message = "mailto:username@domain.com";
-        URI uri = URI.create(message);
-        try {
-            desktop.mail(uri);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        round++;
+
+        for (int i = 0; i < emails.length; i++) {
+            Desktop desktop = Desktop.getDesktop();
+            String message = "mailto:" + emails[i] + "?subject=WarringNationsRound_" + round;
+            URI uri = URI.create(message);
+            try {
+                desktop.mail(uri);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
@@ -214,7 +214,7 @@ public class Controller {
             Text status = new Text("SAFE");
 
             try {
-                Player p1 = new Player(j + 1, startingHitpoints, level, "SAFE", names[j], emails[j]);
+                Player p1 = new Player(j + 1, startingHitpoints, level, "SAFE", names[j]);
                 button.setText(j + 1 + " - " + names[j]);
             } catch (Exception e) {
                 button.setText(j + 1 + " - ");
