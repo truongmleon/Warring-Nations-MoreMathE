@@ -112,12 +112,31 @@ public class Controller {
         playerInfo.setVisible(false);
     }
 
+    private String createEmailBody() {
+        return "===========================%0A"
+                + "WARRING%20NATIONS%0A"
+                + "===========================%0A%0A"
+                + "Stats%20this%20round%0A"
+                + "Attack:%0A"
+                + "Defense:%0A"
+                + "Mana:%0A%0A"
+                + "===========================%0A%0A"
+                + "You%20have%20HP%20left%0A"
+                + "You%20have%200%20used%20mana%0A"
+                + "You%20are%20in%20the%20stage%0A%0A"
+                + "===========================%0A%0A"
+                + "Reply%20with%20attack%20[team],%20defend,%20or%20mana%20(manaing%20twice%20is%20not%20allowed).";
+    }
+
     private void generate(ActionEvent event) {
         round++;
 
         for (int i = 0; i < emails.length; i++) {
             Desktop desktop = Desktop.getDesktop();
-            String message = "mailto:" + emails[i] + "?subject=WarringNationsRound_" + round;
+            String subject = "?subject=WarringNationsRound_" + round;
+            String body = createEmailBody();
+            
+            String message = "mailto:" + emails[i] + subject + "&body=" + createEmailBody();
             URI uri = URI.create(message);
             try {
                 desktop.mail(uri);
