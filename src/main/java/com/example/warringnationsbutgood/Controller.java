@@ -38,6 +38,11 @@ public class Controller {
     private final String[] colors = {"#00FFFF", "#FFFF00", "#ADFF2F", "#FF0000", "#FF00FF"};
     private final ArrayList<String> stageNames = new ArrayList<>(Arrays.asList("Arithmetic", "Geometry", "Algebruh", "Calculus", "Abstract"));
     private ArrayList<TextField> inputs;
+
+    private ArrayList<Player> playersInfo;
+
+    GridPane menu = new GridPane();
+    GridPane actions = new GridPane();
     @FXML
     private VBox gameTitle;
 
@@ -89,6 +94,7 @@ public class Controller {
             back.setVisible(false);
             go.setVisible(false);
             gameTitle.setVisible(false);
+            setUp();
             collectInfo();
         } else {
             playersCount = Integer.parseInt(players.getValue());
@@ -112,18 +118,20 @@ public class Controller {
         playerInfo.setVisible(false);
     }
 
-    private String createEmailBody() {
+    private String createEmailBody(int id) {
+        Player currentPlayer = playersInfo.get(id);
+        currentPlayer.generate();
         return "===========================%0A"
                 + "WARRING%20NATIONS%0A"
                 + "===========================%0A%0A"
-                + "Stats%20this%20round%0A"
-                + "Attack:%0A"
-                + "Defense:%0A"
-                + "Mana:%0A%0A"
+                + "Stats%20this%20round:%0A"
+                + "Attack:%20" + currentPlayer.getAttack() + "%0A"
+                + "Defense:%20" + currentPlayer.getDefense() + "%0A"
+                + "Mana:%20" + currentPlayer.getMana() + "%0A%0A"
                 + "===========================%0A%0A"
-                + "You%20have%20HP%20left%0A"
-                + "You%20have%200%20used%20mana%0A"
-                + "You%20are%20in%20the%20stage%0A%0A"
+                + "You%20have%20" + currentPlayer.getHealth() + "%20HP%20left%0A"
+                + "You%20have%20used%20" + currentPlayer.getTotalMana() + "%20mana%0A"
+                + "You%20are%20in%20the%20" + currentPlayer.getStage() + "%20stage%0A%0A"
                 + "===========================%0A%0A"
                 + "Reply%20with%20attack%20[team],%20defend,%20or%20mana%20(manaing%20twice%20is%20not%20allowed).";
     }
@@ -134,9 +142,8 @@ public class Controller {
         for (int i = 0; i < emails.length; i++) {
             Desktop desktop = Desktop.getDesktop();
             String subject = "?subject=WarringNationsRound_" + round;
-            String body = createEmailBody();
-            
-            String message = "mailto:" + emails[i] + subject + "&body=" + createEmailBody();
+
+            String message = "mailto:" + emails[i] + subject + "&body=" + createEmailBody(i);
             URI uri = URI.create(message);
             try {
                 desktop.mail(uri);
@@ -165,7 +172,8 @@ public class Controller {
         menu.add(name, 1, 1);
         menu.add(email, 2, 1);
 
-        inputs = new ArrayList<TextField>();
+        inputs = new ArrayList<>();
+        playersInfo = new ArrayList<>();
 
         for (int i = 0; i < playersCount; i++) {
             TextField enterName = new TextField();
@@ -189,9 +197,7 @@ public class Controller {
         playerInfo.getChildren().add(scrollPane);
     }
 
-    private void collectInfo() {
-        GridPane menu = new GridPane();
-        GridPane actions = new GridPane();
+    private void setUp() {
         menu.setPrefSize(750, 50 + 60 * 8);
         menu.setVgap(10);
         menu.setHgap(50);
@@ -204,7 +210,6 @@ public class Controller {
         actions.setAlignment(Pos.CENTER);
 
         final Text[] titles = {new Text("Name"), new Text("Hitpoints"), new Text("Stage"), new Text("Status")};
-        final Button[] buttonTitles = {new Button("Generate"), new Button("Calculate"), new Button("Mines")};
 
         for (int k = 0; k < titles.length; k++) {
             titles[k].getStyleClass().add("titleGame");
@@ -225,6 +230,11 @@ public class Controller {
                 emails[i / 2] = data;
             }
         }
+    }
+
+    private void collectInfo() {
+        final Button[] buttonTitles = {new Button("Generate"), new Button("Calculate"), new Button("Mines")};
+        gameMenu.getChildren().clear();
 
         for (int j = 0; j < 8; j++) {
             Button button = new Button();
@@ -233,12 +243,14 @@ public class Controller {
             Text status = new Text("SAFE");
 
             try {
-                Player p1 = new Player(j + 1, startingHitpoints, level, "SAFE", names[j]);
+                Player p1 = new Player(startingHitpoints, level, "SAFE", names[j]);
+                playersInfo.add(p1);
                 button.setText(j + 1 + " - " + names[j]);
             } catch (Exception e) {
                 button.setText(j + 1 + " - ");
-                button.setDisable(true);
             }
+
+            button.setDisable(true);
 
             button.getStyleClass().add("nameButtons");
             health.getStyleClass().add("stats");

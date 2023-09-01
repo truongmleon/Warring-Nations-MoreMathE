@@ -5,15 +5,11 @@ public class Player {
     private String[] stages = {"Arithmetic", "Geometry", "Algebruh", "Calculus", "Abstract"};
     private int[] manaForStage = {15, 35, 60, 90};
     private int[] factors = {9, 14, 19, 29, 39};
-
-    private int id;
     private int health;
     private String stage;
 
     private String status;
     private String name;
-    private String email;
-
     private int attack;
     private int defense;
     private int mana;
@@ -23,13 +19,11 @@ public class Player {
 
     private boolean attackFailed;
 
-    public Player(int id, int hitpoints, String stage, String status, String name) {
-        this.id = id;
+    public Player(int hitpoints, String stage, String status, String name) {
         this.health = hitpoints;
         this.stage = stage;
         this.status = status;
         this.name = name;
-        this.email = email;
 
         if (!stage.equals("Arithmetic")) {
             for (int i = 1; i < stages.length; i++) {
@@ -55,8 +49,9 @@ public class Player {
     public int getAttack() { return this.attack; }
     public int getDefense() { return this.defense; }
     public int getMana() { return this.mana; }
+    public int getTotalMana() { return this.totalMana; }
     public int getHealth() { return this.health; }
-
+    public String getStage() { return  this.stage; }
 
     private void attackPlayer(Player other) {
         if (this.attack > other.getDefense()) {
@@ -83,7 +78,7 @@ public class Player {
         }
     }
 
-    private void generate() {
+    public void generate() {
         statsFactor = 0;
 
         //Checks for current stage for generating stats
@@ -98,6 +93,7 @@ public class Player {
         this.defense = (int) (Math.random() * statsFactor) + statsFactor / 5;
         this.mana = (int) (Math.random() * statsFactor / 2) + statsFactor / 6;
     }
+
 
 
 
