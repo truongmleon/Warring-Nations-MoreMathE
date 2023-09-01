@@ -24,7 +24,6 @@ public class GUI extends Application {
         primaryStage.show();
     }
 
-
     public static double getWidth() { return size.getWidth(); }
 
     public static double getHeight() { return  size.getHeight(); }

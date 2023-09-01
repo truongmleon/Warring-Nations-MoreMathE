@@ -35,7 +35,7 @@ public class Controller {
 
     //Names and Emails
     private String[] names, emails;
-    private final String[] colors = {"#00FFFF", "#FFFF00", "#ADFF2F", "#FF0000", "#FF00FF"};
+
     private final ArrayList<String> stageNames = new ArrayList<>(Arrays.asList("Arithmetic", "Geometry", "Algebruh", "Calculus", "Abstract"));
     private ArrayList<TextField> inputs;
 
@@ -200,7 +200,7 @@ public class Controller {
 
     private void setUp() {
         //Things that will not be changed after setting them up once
-        menu.setPrefSize(750, 50 + 60 * 8);
+        menu.setPrefSize(780, 50 + 60 * 8);
         menu.setVgap(10);
         menu.setHgap(50);
         menu.setId("gamePane");
@@ -240,16 +240,26 @@ public class Controller {
 
         for (int j = 0; j < 8; j++) {
             Button button = new Button();
-            Text health = new Text(Integer.toString(startingHitpoints));
-            Text currentLevel = new Text(level);
-            Text status = new Text("SAFE");
+            Player p1;
+            Text health;
+            Text currentLevel;
+            Text status;
 
             try {
-                Player p1 = new Player(startingHitpoints, level, "SAFE", names[j]);
+                p1 = new Player(startingHitpoints, level);
                 playersInfo.add(p1);
                 button.setText(j + 1 + " - " + names[j]);
+                health = new Text(Integer.toString(p1.getHealth()));
+                currentLevel = new Text(p1.getStage());
+                status = new Text(p1.getStatus());
+
+                currentLevel.setStyle("-fx-fill: " + p1.getCurrentStageColor() + ";");
+                status.setStyle("-fx-fill:" + p1.getCurrentStatusColor() + ";");
             } catch (Exception e) {
                 button.setText(j + 1 + " - ");
+                health = new Text("NaN");
+                currentLevel = new Text("????");
+                status = new Text("????");
             }
 
             button.setDisable(true);
@@ -259,9 +269,6 @@ public class Controller {
             currentLevel.getStyleClass().add("stats");
             status.getStyleClass().add("stats");
 
-            int index = stageNames.indexOf(level);
-            currentLevel.setStyle("-fx-fill: " + colors[index] + ";");
-            status.setStyle("-fx-fill: #00FFFF;");
 
             menu.add(button, 0, j + 1);
             menu.add(health, 1, j + 1);
