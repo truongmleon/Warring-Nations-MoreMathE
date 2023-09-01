@@ -138,7 +138,7 @@ public class Controller {
 
     private void generate(ActionEvent event) {
         round++;
-
+        //Making Email
         for (int i = 0; i < emails.length; i++) {
             Desktop desktop = Desktop.getDesktop();
             String subject = "?subject=WarringNationsRound_" + round;
@@ -154,6 +154,7 @@ public class Controller {
     }
 
     private void getPlayers() {
+        //Scrollable menu to get players email and name
         ScrollPane scrollPane = new ScrollPane();
         scrollPane.setPrefSize(700, 250);
         scrollPane.setId("-fx-background-color: transparent;");
@@ -198,6 +199,7 @@ public class Controller {
     }
 
     private void setUp() {
+        //Things that will not be changed after setting them up once
         menu.setPrefSize(750, 50 + 60 * 8);
         menu.setVgap(10);
         menu.setHgap(50);
