@@ -9,15 +9,14 @@ import java.io.IOException;
 
 public class GUI extends Application {
 
-    private static Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+    private static final Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
     private static Scene scene;
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(GUI.class.getResource("lobby.fxml"));
+        final FXMLLoader fxmlLoader = new FXMLLoader(GUI.class.getResource("lobby.fxml"));
+        final Image img = new Image("https://raw.githubusercontent.com/truongmleon/Warring-Nations-MoreMathEdition/master/src/main/resources/com/example/warringnationsbutgood/assets/icons/cow.png");
         scene = new Scene(fxmlLoader.load(), size.getWidth(), size.getHeight());
-
-        Image img = new Image(getClass().getResourceAsStream("/cow.png"));
         primaryStage.getIcons().add(img);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Warring Nations");
