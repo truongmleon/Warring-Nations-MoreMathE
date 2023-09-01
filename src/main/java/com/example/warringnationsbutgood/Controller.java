@@ -262,8 +262,6 @@ public class Controller {
                 status = new Text("????");
             }
 
-            button.setDisable(true);
-
             button.getStyleClass().add("nameButtons");
             health.getStyleClass().add("stats");
             currentLevel.getStyleClass().add("stats");

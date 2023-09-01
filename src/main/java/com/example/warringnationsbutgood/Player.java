@@ -43,6 +43,10 @@ public class Player {
         setStatusColor();
     }
 
+    private void changeStatus() {
+        setStatusColor();
+    }
+
     private void setStatusColor() {
         for (int i = 0; i < statuses.length; i++) {
             if (statuses[i].equals(status)) {
