@@ -254,10 +254,10 @@ public class Controller {
                 currentLevel.setStyle("-fx-fill: " + p1.getCurrentStageColor() + ";");
                 status.setStyle("-fx-fill:" + p1.getCurrentStatusColor() + ";");
             } catch (Exception e) {
-                button.setText(j + 1 + " - ");
-                health = new Text("NaN");
-                currentLevel = new Text("????");
-                status = new Text("????");
+                button.setText(j + 1 + " - Mr. Harp");
+                health = new Text("GOD");
+                currentLevel = new Text("Calculus");
+                status = new Text("ALIVE");
             }
 
             button.setDisable(true);

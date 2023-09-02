@@ -4,6 +4,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import java.awt.*;
 import java.io.IOException;
 
@@ -22,6 +25,10 @@ public class GUI extends Application {
         primaryStage.setTitle("Warring Nations");
         primaryStage.setFullScreen(true);
         primaryStage.show();
+
+        Media media = new Media("https://nsdrozario.github.io/music/other/Battle.mp3");
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();
     }
 
     public static double getWidth() { return size.getWidth(); }
