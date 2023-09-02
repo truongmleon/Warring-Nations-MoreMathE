@@ -35,14 +35,11 @@ public class Controller {
 
     //Names and Emails
     private String[] names, emails;
-
-    private final ArrayList<String> stageNames = new ArrayList<>(Arrays.asList("Arithmetic", "Geometry", "Algebruh", "Calculus", "Abstract"));
     private ArrayList<TextField> inputs;
-
     private ArrayList<Player> playersInfo;
-
-    GridPane menu = new GridPane();
-    GridPane actions = new GridPane();
+    private GridPane menu = new GridPane();
+    private GridPane actions = new GridPane();
+    private Button[] playerButtons = new Button[8];
     @FXML
     private VBox gameTitle;
 
@@ -151,6 +148,8 @@ public class Controller {
                 throw new RuntimeException(e);
             }
         }
+
+        playerButtons[0].setDisable(false);
     }
 
     private void getPlayers() {
@@ -199,7 +198,6 @@ public class Controller {
     }
 
     private void setUp() {
-        //Things that will not be changed after setting them up once
         menu.setPrefSize(780, 50 + 60 * 8);
         menu.setVgap(10);
         menu.setHgap(50);
@@ -262,12 +260,13 @@ public class Controller {
                 status = new Text("????");
             }
 
+            button.setDisable(true);
             button.getStyleClass().add("nameButtons");
             health.getStyleClass().add("stats");
             currentLevel.getStyleClass().add("stats");
             status.getStyleClass().add("stats");
 
-
+            playerButtons[j] = button;
             menu.add(button, 0, j + 1);
             menu.add(health, 1, j + 1);
             menu.add(currentLevel, 2, j + 1);
