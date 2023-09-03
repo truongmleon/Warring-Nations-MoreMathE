@@ -15,11 +15,12 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 
 public class Controller {
@@ -35,11 +36,12 @@ public class Controller {
 
     //Names and Emails
     private String[] names, emails;
+
+    private Button[] playerButtons, adminButtons;
     private ArrayList<TextField> inputs;
     private ArrayList<Player> playersInfo;
     private GridPane menu = new GridPane();
     private GridPane actions = new GridPane();
-    private Button[] playerButtons = new Button[8];
     @FXML
     private VBox gameTitle;
 
@@ -234,7 +236,10 @@ public class Controller {
 
     private void collectInfo() {
         final Button[] buttonTitles = {new Button("Generate"), new Button("Calculate"), new Button("Mines")};
-        gameMenu.getChildren().clear();
+        final Image[] actionIcons = {new Image("src/main/resources/com/example/warringnationsbutgood/assets/icons/buttons/Dove.png")};
+        final ImageView[] actionView = {new ImageView(actionIcons[0])};
+        playerButtons = new Button[8];
+        adminButtons = new Button[3];
 
         for (int j = 0; j < 8; j++) {
             Button button = new Button();
@@ -282,7 +287,7 @@ public class Controller {
             if (l != 0) {
                 buttonTitles[l].setDisable(true);
             }
-
+            buttonTitles[l].setGraphic(actionView[0]);
             actions.add(buttonTitles[l], 0, l);
         }
 

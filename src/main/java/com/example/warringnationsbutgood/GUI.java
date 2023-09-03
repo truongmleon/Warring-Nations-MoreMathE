@@ -25,10 +25,11 @@ public class GUI extends Application {
         primaryStage.setTitle("Warring Nations");
         primaryStage.setFullScreen(true);
         primaryStage.show();
-
+        /*
         Media media = new Media("https://nsdrozario.github.io/music/other/Battle.mp3");
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
+        */
     }
 
     public static double getWidth() { return size.getWidth(); }

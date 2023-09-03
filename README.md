@@ -8,8 +8,10 @@ I want to create a reworked version of the game, containing what was missing the
 
 Attributions:
 
-Music is by Nathaniel D'Rozario 
+Music is by Nathaniel D'Rozario.
 
 https://github.com/nsdrozario
 
 https://nsdrozario.github.io/song.html?a=2&s=0
+
+All art is made by me using GIMP and Procreate.
