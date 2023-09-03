@@ -236,7 +236,10 @@ public class Controller {
 
     private void collectInfo() {
         final Button[] buttonTitles = {new Button("Generate"), new Button("Calculate"), new Button("Mines")};
-        final Image[] actionIcons = {new Image("src/main/resources/com/example/warringnationsbutgood/assets/icons/buttons/Dove.png")};
+        final Image[] actionIcons = {
+                new Image("https://raw.githubusercontent.com/truongmleon/Warring-Nations-MoreMathEdition/master/src/main/resources/com/example/warringnationsbutgood/assets/icons/buttons/Dove.png", 40, 40, true, false)
+        };
+
         final ImageView[] actionView = {new ImageView(actionIcons[0])};
         playerButtons = new Button[8];
         adminButtons = new Button[3];
@@ -287,7 +290,8 @@ public class Controller {
             if (l != 0) {
                 buttonTitles[l].setDisable(true);
             }
-            buttonTitles[l].setGraphic(actionView[0]);
+
+            buttonTitles[0].setGraphic(actionView[0]);
             actions.add(buttonTitles[l], 0, l);
         }
 
