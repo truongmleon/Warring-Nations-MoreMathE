@@ -14,4 +14,4 @@ https://github.com/nsdrozario
 
 https://nsdrozario.github.io/song.html?a=2&s=0
 
-All art is made by me using GIMP and Procreate.
+Art is made by me using GIMP and Procreate.
