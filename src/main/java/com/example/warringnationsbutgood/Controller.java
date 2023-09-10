@@ -18,8 +18,11 @@ import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -36,6 +39,7 @@ public class Controller {
 
     //Names and Emails
     private String[] names, emails;
+    private final String[] stages = {"Arithmetic", "Geometry", "Algebruh", "Calculus", "Abstract"};
 
     private Button[] playerButtons, adminButtons;
     private ArrayList<TextField> inputs;
@@ -117,9 +121,20 @@ public class Controller {
         playerInfo.setVisible(false);
     }
 
+    private String getProblem(String current) {
+        String problem = "";
+
+        for (int i = 0; i < stages.length; i++) {
+
+        }
+
+        return problem;
+    }
     private String createEmailBody(int id) {
         Player currentPlayer = playersInfo.get(id);
+        String problem = getProblem(currentPlayer.getStage());
         currentPlayer.generate();
+
         return "===========================%0A"
                 + "WARRING%20NATIONS%0A"
                 + "===========================%0A%0A"
@@ -132,7 +147,8 @@ public class Controller {
                 + "You%20have%20used%20" + currentPlayer.getTotalMana() + "%20mana%0A"
                 + "You%20are%20in%20the%20" + currentPlayer.getStage() + "%20stage%0A%0A"
                 + "===========================%0A%0A"
-                + "Reply%20with%20attack%20[team],%20defend,%20or%20mana%20(manaing%20twice%20is%20not%20allowed).";
+                + "Reply%20with%20attack%20[team],%20defend,%20or%20mana%20(manaing%20twice%20is%20not%20allowed)."
+                + "";
     }
 
     private void generate(ActionEvent event) {
