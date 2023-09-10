@@ -265,7 +265,7 @@ public class Controller {
             Text status;
 
             try {
-                p1 = new Player(startingHitpoints, level);
+                p1 = new Player(startingHitpoints, level, names[j]);
                 playersInfo.add(p1);
                 button.setText(j + 1 + " - " + names[j]);
                 health = new Text(Integer.toString(p1.getHealth()));

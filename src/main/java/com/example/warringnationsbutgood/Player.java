@@ -2,30 +2,20 @@ package com.example.warringnationsbutgood;
 
 public class Player {
     private boolean isAlive = true;
+    private boolean attackFailed;
     private final String[] stages = {"Arithmetic", "Geometry", "Algebruh", "Calculus", "Abstract"};
     private final String[] stageColors = {"#00FFFF", "#FFFF00", "#ADFF2F", "#FF0000", "#FF00FF"};
     private final String[] statuses = {"SAFE", "GAINED", "FAILED", "ATTACKED", "DEFENDED", "SUCCESS"};
     private final String[] statusColors = {"#00FFFF", "#FFC0CB", "#FF0000", "#FF0000", "#FFFF00", "#ADFF2F"};
-
     private final int[] manaForStage = {15, 35, 60, 90};
     private final int[] factors = {9, 14, 19, 29, 39};
-    private int health;
-    private int attack;
-    private int defense;
-    private int mana;
-    private int totalMana;
-    private int statsFactor = 0;
-    private String stage;
+    private int health, attack, defense, mana, totalMana, statsFactor;
+    private String stage, name, currentStageColor, status, currentStatusColor;
 
-    private String currentStageColor;
-    private String status;
-
-    private String currentStatusColor;
-    private boolean attackFailed;
-
-    public Player(int hitpoints, String stage) {
+    public Player(int hitpoints, String stage, String name) {
         this.health = hitpoints;
         this.stage = stage;
+        this.name = name;
         this.status = "SAFE";
 
         if (!stage.equals("Arithmetic")) {
