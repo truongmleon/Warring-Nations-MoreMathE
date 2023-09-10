@@ -161,6 +161,10 @@ public class Controller {
 
     }
 
+    private void mines(ActionEvent event) {
+
+    }
+
     private void getPlayers() {
         //Scrollable menu to get players email and name
         ScrollPane scrollPane = new ScrollPane();
@@ -295,7 +299,12 @@ public class Controller {
 
             if (l == 0) {
                 buttonTitles[l].setOnAction(this::generate);
+            } else if (l == 1) {
+                buttonTitles[l].setOnAction(this::calculate);
+            } else {
+                buttonTitles[l].setOnAction(this::mines);
             }
+
             if (l != 0) {
                 buttonTitles[l].setDisable(true);
             }
