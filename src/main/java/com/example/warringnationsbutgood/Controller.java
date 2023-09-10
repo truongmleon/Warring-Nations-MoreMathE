@@ -166,7 +166,10 @@ public class Controller {
     }
 
     private void playerActions(ActionEvent event) {
-
+        GridPane menu = new GridPane();
+        menu.setPrefSize(200, 150);
+        menu.setVgap(10);
+        menu.setHgap(20);
     }
 
     private void getPlayers() {
