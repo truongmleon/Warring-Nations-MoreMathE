@@ -139,6 +139,7 @@ public class Controller {
         round++;
         //Making Email
         for (int i = 0; i < emails.length; i++) {
+            playerButtons[i].setDisable(false);
             Desktop desktop = Desktop.getDesktop();
             String subject = "?subject=WarringNationsRound_" + round;
 
@@ -151,7 +152,13 @@ public class Controller {
             }
         }
 
-        playerButtons[0].setDisable(false);
+        adminButtons[0].setDisable(true);
+        adminButtons[1].setDisable(false);
+        adminButtons[2].setDisable(false);
+    }
+
+    private void calculate(ActionEvent event) {
+
     }
 
     private void getPlayers() {
@@ -292,8 +299,8 @@ public class Controller {
             if (l != 0) {
                 buttonTitles[l].setDisable(true);
             }
-
             buttonTitles[l].setGraphic(actionView[l]);
+            adminButtons[l] = buttonTitles[l];
             actions.add(buttonTitles[l], 0, l);
         }
 
