@@ -158,10 +158,14 @@ public class Controller {
     }
 
     private void calculate(ActionEvent event) {
-
+        //Really just a refresh function. Calculations are done throughout
     }
 
     private void mines(ActionEvent event) {
+
+    }
+
+    private void playerActions(ActionEvent event) {
 
     }
 
@@ -271,7 +275,6 @@ public class Controller {
                 health = new Text(Integer.toString(p1.getHealth()));
                 currentLevel = new Text(p1.getStage());
                 status = new Text(p1.getStatus());
-
                 currentLevel.setStyle("-fx-fill: " + p1.getCurrentStageColor() + ";");
                 status.setStyle("-fx-fill:" + p1.getCurrentStatusColor() + ";");
             } catch (Exception e) {
@@ -284,6 +287,7 @@ public class Controller {
             button.setDisable(true);
             button.getStyleClass().add("nameButtons");
             health.getStyleClass().add("stats");
+            button.setOnAction(this::playerActions);
             currentLevel.getStyleClass().add("stats");
             status.getStyleClass().add("stats");
 
