@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Pixels&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Rubik+Pixels&display=swap');
 
-$font: 'Rubik Pixels', cursive;
+$font1: 'Rubik Pixels', cursive;
+$font2: 'Roboto Mono', monospace;
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -11,8 +12,29 @@ body, html {
     padding: 0;
 }
 
-#main {
-    font-size: 2.5em;
+#main, #go, #stages, #label {
     text-align: center;
-    font-family: $font;
+    font-family: $font2;
+}
+
+#main {
+    font-size: 4em;
+    font-family: $font1;
+}
+
+#go {
+    font-size: 2.5em;
+}
+
+#stages {
+    font-size: 2em;
+}
+
+#label {
+    font-size: 2.8em;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
 }

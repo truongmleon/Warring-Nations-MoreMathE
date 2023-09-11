@@ -3,7 +3,8 @@ const Header = () => {
     <div className="">
       <h1 id="main">Warring Nations Math Maker</h1>
 
-      <label htmlFor="stages">Choose a stage: </label>
+    <div className="flex">
+    <label id="label" htmlFor="stages">Stage:</label>
 
     <select name="stages" id="stages">
       <option value="arithmetic">Arithmetic</option>
@@ -13,7 +14,9 @@ const Header = () => {
       <option value="abstract">Abstract</option>
     </select>
 
-    <button>Go</button>
+    <button id="go">Go</button>
+    </div>
+    
     </div>
   )
 }

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik+Pixels&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Rubik+Pixels&display=swap");
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -8,8 +8,29 @@ body, html {
   padding: 0;
 }
 
-#main {
-  font-size: 2.5em;
+#main, #go, #stages, #label {
   text-align: center;
+  font-family: "Roboto Mono", monospace;
+}
+
+#main {
+  font-size: 4em;
   font-family: "Rubik Pixels", cursive;
+}
+
+#go {
+  font-size: 2.5em;
+}
+
+#stages {
+  font-size: 2em;
+}
+
+#label {
+  font-size: 2.8em;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
 }/*# sourceMappingURL=styles.css.map */
