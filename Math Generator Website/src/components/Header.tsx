@@ -1,3 +1,8 @@
+const getProblem = () => {
+  let stageValue = (document.getElementById("stages") as HTMLInputElement).value;
+  
+}
+
 const Header = () => {
   return (
     <div className="">
@@ -14,7 +19,7 @@ const Header = () => {
       <option value="abstract">Abstract</option>
     </select>
 
-    <button id="go">Go</button>
+    <button onClick={() => getProblem()} id="go">Go</button>
     </div>
     
     </div>
