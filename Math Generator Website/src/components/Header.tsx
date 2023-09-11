@@ -1,10 +1,11 @@
 const math: string[] = ["arithmetic", "geometry", "algebruh", "calculus", "abstract"];
 
 const getProblem = () => {
-  let stageValue = (document.getElementById("stages") as HTMLInputElement).value;
+  const stageValue = (document.getElementById("stages") as HTMLInputElement).value;
+
   math.forEach((value) => {
     if (value === stageValue) {
-      
+      window.location.href = value.replace(/\s+/g, '') + ".html"
     }
   });
 }
