@@ -1,8 +1,12 @@
-const math: string[] = [""];
+const math: string[] = ["arithmetic", "geometry", "algebruh", "calculus", "abstract"];
 
 const getProblem = () => {
   let stageValue = (document.getElementById("stages") as HTMLInputElement).value;
-  
+  math.forEach((value) => {
+    if (value === stageValue) {
+      
+    }
+  });
 }
 
 const Header = () => {
