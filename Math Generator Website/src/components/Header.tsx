@@ -1,3 +1,5 @@
+const math: string[] = [""];
+
 const getProblem = () => {
   let stageValue = (document.getElementById("stages") as HTMLInputElement).value;
   
