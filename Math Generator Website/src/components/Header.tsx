@@ -26,7 +26,7 @@ const Header = () => {
       <option value="abstract">Abstract</option>
     </select>
 
-    <button onClick={() => getProblem()} id="go">Go</button>
+    <button onClick={() => getProblem()} className="go">Go</button>
     </div>
     
     </div>
