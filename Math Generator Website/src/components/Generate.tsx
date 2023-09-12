@@ -5,6 +5,7 @@ const Generate = (props: any) => {
 
     return (  
        <div>
+        <p><span className="math display">\[y = \frac&#123;a&#125;&#123;b&#125; + c^2 + d\]</span></p>
          <div className="flex">
          <img id="problem" width="200" src="https://miro.medium.com/v2/resize:fit:1400/1*L76A5gL6176UbMgn7q4Ybg.jpeg" alt="photo of math" />
          </div>
