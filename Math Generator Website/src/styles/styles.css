@@ -8,7 +8,7 @@ body, html {
   padding: 0;
 }
 
-.titles, #go, #stages, #label {
+.titles, .go, #stages, #label {
   text-align: center;
   font-family: "Roboto Mono", monospace;
 }
@@ -36,7 +36,7 @@ body, html {
 .go {
   font-size: 2.5em;
   background-color: #fff;
-  width: 150px;
+  width: 170px;
   margin: 10px;
   border: 3px #fff solid;
   border-radius: 40px;
