@@ -2,6 +2,7 @@ const Generate = (props: any) => {
     const stage: string = props.stage;
     let image: string = "";
     let answers: number[] = [];
+
     return (  
        <div>
          <div className="flex">
@@ -11,10 +12,10 @@ const Generate = (props: any) => {
       <div className="flex">
       <form action="">
           <h2>Select an answer: </h2>
-          {answers[0]}<input type="radio" /> <br />
-          {answers[1]}<input type="radio" /> <br />
-          {answers[2]}<input type="radio" /> <br />
-          {answers[3]}<input type="radio" /> <br />
+          {answers[0]}<input type="radio" name="answer" value="" /> <br />
+          {answers[1]}<input type="radio" name="answer" value="" /> <br />
+          {answers[2]}<input type="radio" name="answer" value="" /> <br />
+          {answers[3]}<input type="radio" name="answer" value="" /> <br />
       </form>
   
       <button className="go">Enter</button>
