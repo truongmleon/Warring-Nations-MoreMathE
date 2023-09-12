@@ -6,10 +6,10 @@ const Arithmetic = (props: any) => {
     <div className="flex">
     <form action="">
         <h2>Select an answer: </h2>
-        <input type="radio" />
-        <input type="radio" />
-        <input type="radio" />
-        <input type="radio" />
+        <input type="radio" /> <br />
+        <input type="radio" /> <br />
+        <input type="radio" /> <br />
+        <input type="radio" /> <br />
     </form>
 
     <button className="go">Enter</button>
