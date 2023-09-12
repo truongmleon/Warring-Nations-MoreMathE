@@ -12,7 +12,7 @@ const Arithmetic = (props: any) => {
         <input type="radio" />
     </form>
 
-    <button className="go">Start</button>
+    <button className="go">Enter</button>
     </div>
     
     </div>
