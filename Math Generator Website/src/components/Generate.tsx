@@ -1,5 +1,5 @@
 const arithmetic = () => {
-
+  const operations: string[] = ["+", "-", "*", "/"];
 }
 
 const geometry = () => {
@@ -34,7 +34,7 @@ const Generate = (props: any) => {
 
     return (  
        <div>
-        <p><span className="math display">\[y = \frac&#123;a&#125;&#123;b&#125; + c^2 + d\]</span></p>
+        <p><span className="math display">\[765456789 + 987654567\]</span></p>
          <div className="flex">
          </div>
 
