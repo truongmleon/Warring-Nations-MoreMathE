@@ -13,7 +13,7 @@ const getProblem = () => {
 const Header = () => {
   return (
     <div className="">
-      <h1 id="main">Warring Nations Math Maker</h1>
+      <h1 className="titles">Warring Nations Math Maker</h1>
 
     <div className="flex">
     <label id="label" htmlFor="stages">Stage:</label>

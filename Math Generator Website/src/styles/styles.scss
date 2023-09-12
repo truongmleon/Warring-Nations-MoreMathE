@@ -12,12 +12,12 @@ body, html {
     padding: 0;
 }
 
-#main, #go, #stages, #label {
+.titles, #go, #stages, #label {
     text-align: center;
     font-family: $font2;
 }
 
-#main {
+.titles {
     font-size: 4em;
     font-family: $font1;
 }
