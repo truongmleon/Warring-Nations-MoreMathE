@@ -3,6 +3,8 @@ let answers: number[] = [];
 const arithmetic = () => {
   const operations: string[] = [" + ", " + ", " - ", " - ", " * ", " / "];
   const randomOperations: string[] = [operations[Math.floor(Math.random() * operations.length)], operations[Math.floor(Math.random() * operations.length)], operations[Math.floor(Math.random() * operations.length)]];
+  let inPlace = [];
+  let random = Math.floor(Math.random() * 4);
   let result = "69";
   let answer = 0;
 
@@ -12,9 +14,25 @@ const arithmetic = () => {
       result += Math.floor(Math.random() * 9 + 1).toString();
     }
   }
-  
+
   answer = eval(result).toFixed(2);
-  answers[Math.floor(Math.random() * 4)] = answer;
+  answers[random] = answer;
+  inPlace.push(random);
+
+  while (inPlace.length < 4) {
+    random = Math.floor(Math.random() * 4);
+
+    while (inPlace.includes(random)) {
+      random = Math.floor(Math.random() * 4);
+    }
+
+    inPlace.push(random);
+
+    let resultArr = result.split(" ");
+    resultArr[2] = random + 1 + resultArr[2][1] + resultArr[2][2];
+    resultArr[4] = Math.floor(Math.random() * 8) + 2 + resultArr[4][1] + resultArr[4][2];
+    answers[random] = eval(resultArr.join("")).toFixed(2);
+  }
 
   return result;
 }
