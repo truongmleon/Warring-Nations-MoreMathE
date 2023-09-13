@@ -1,16 +1,21 @@
+let answers: number[] = [];
+
 const arithmetic = () => {
   const operations: string[] = [" + ", " + ", " - ", " - ", " * ", " / "];
-  const randomOperations: string[] = [operations[Math.floor(Math.random() * operations.length)], operations[Math.floor(Math.random() * operations.length)], operations[Math.floor(Math.random() * operations.length)], operations[Math.floor(Math.random() * operations.length)]];
+  const randomOperations: string[] = [operations[Math.floor(Math.random() * operations.length)], operations[Math.floor(Math.random() * operations.length)], operations[Math.floor(Math.random() * operations.length)]];
   let result = "69";
+  let answer = 0;
 
   for (let i: number = 0; i < randomOperations.length; i++) {
     result += randomOperations[i];
     for (let j: number = 0; j < 3; j++) {
       result += Math.floor(Math.random() * 9 + 1).toString();
     }
-
   }
   
+  answer = eval(result).toFixed(2);
+  answers[Math.floor(Math.random() * 4)] = answer;
+
   return result;
 }
 
@@ -36,7 +41,6 @@ const abstract = () => {
 
 const stages: string[] = ["arithmetic", "geometry", "algebruh", "calculus", "abstract"];
 const stageFunctions: string[] = [arithmetic(), geometry(), algebruh(), calculus(), abstract()];
-let answers: number[] = [];
 
 const Generate = (props: any) => {
     const stage: string = props.stage;
@@ -54,13 +58,12 @@ const Generate = (props: any) => {
         <p><span className="math display">\[{result}\]</span></p>
 
       <div className="flex">
-      <form action="">
-        
+      <form id="answers" action="">
           <h2 id="answer-title">Select an answer: </h2>
-          {answers[0]}<input type="radio" name="answer" value="" /> <br />
-          {answers[1]}<input type="radio" name="answer" value="" /> <br />
-          {answers[2]}<input type="radio" name="answer" value="" /> <br />
-          {answers[3]}<input type="radio" name="answer" value="" /> <br />
+          <input type="radio" name="answer" value="" /> {answers[0]} <br />
+          <input type="radio" name="answer" value="" /> {answers[1]} <br />
+          <input type="radio" name="answer" value="" /> {answers[2]} <br />
+          <input type="radio" name="answer" value="" /> {answers[3]} <br />
       </form>
   
       <button className="go">Enter</button>

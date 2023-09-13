@@ -50,4 +50,14 @@ body, html {
 
 .math {
   font-size: 2em;
+}
+
+#answer-title {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.7em;
+}
+
+#answers input {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.5em;
 }/*# sourceMappingURL=styles.css.map */
