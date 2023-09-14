@@ -2,9 +2,13 @@ let answers: number[] = [];
 
 const checkAnswer = (answer: string) => {
   const result: string = (document.querySelector('input[name="answer"]:checked') as HTMLInputElement).value;
-
+  const buttons: NodeListOf<HTMLElement> = document.getElementsByName('answer');
   result == answer ? window.alert("Correct!") : window.alert("You suck!");
   
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].disable = true;
+    console.log(buttons[i])
+  }
 }
 
 const arithmetic = () => {
