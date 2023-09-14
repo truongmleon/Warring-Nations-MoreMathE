@@ -1,5 +1,12 @@
 let answers: number[] = [];
 
+const checkAnswer = (answer: string) => {
+  const result: string = (document.querySelector('input[name="answer"]:checked') as HTMLInputElement).value;
+
+  result == answer ? window.alert("Correct!") : window.alert("You suck!");
+  
+}
+
 const arithmetic = () => {
   const operations: string[] = [" + ", " + ", " - ", " - ", " * ", " / "];
   const randomOperations: string[] = [operations[Math.floor(Math.random() * operations.length)], operations[Math.floor(Math.random() * operations.length)], operations[Math.floor(Math.random() * operations.length)]];
@@ -31,38 +38,39 @@ const arithmetic = () => {
     let resultArr = result.split(" ");
     resultArr[2] = random + 1 + resultArr[2][1] + resultArr[2][2];
     resultArr[4] = Math.floor(Math.random() * 8) + 2 + resultArr[4][1] + resultArr[4][2];
+    resultArr[4] = Math.floor(Math.random() * 6) + 2 + resultArr[6][1] + resultArr[6][2];
     answers[random] = eval(resultArr.join("")).toFixed(2);
   }
 
-  return result;
+  return [answer.toString(), result];
 }
 
 const geometry = () => {
-  let result = "";
+  let result = [""];
   return result;
 }
 
 const algebruh = () => {
-  let result = "";
+  let result = [""];
   return result;
 }
 
 const calculus = () => {
-  let result = "";
+  let result = [""];
   return result;
 }
 
 const abstract = () => {
-  let result = "";
+  let result = [""];
   return result;
 }
 
 const stages: string[] = ["arithmetic", "geometry", "algebruh", "calculus", "abstract"];
-const stageFunctions: string[] = [arithmetic(), geometry(), algebruh(), calculus(), abstract()];
+const stageFunctions: string[][] = [arithmetic(), geometry(), algebruh(), calculus(), abstract()];
 
 const Generate = (props: any) => {
     const stage: string = props.stage;
-    let result: string = "";
+    let result: string[] = [];
 
     for (let i: number = 0; i < stages.length; i++) {
       if (stages[i] === stage) {
@@ -73,7 +81,7 @@ const Generate = (props: any) => {
 
     return (  
        <div>
-        <p><span className="math display">\[{result}\]</span></p>
+        <p><span className="math display">\[{result[1]}\]</span></p>
 
       <div className="flex">
       <form id="answer-sheet" action="">
@@ -88,7 +96,7 @@ const Generate = (props: any) => {
           <label className="answers">{answers[3]}</label> <br />
       </form>
   
-      <button className="go">Enter</button>
+      <button onClick={() => checkAnswer(result[0])} className="go">Enter</button>
       </div>
        </div>
     )
