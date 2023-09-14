@@ -76,12 +76,16 @@ const Generate = (props: any) => {
         <p><span className="math display">\[{result}\]</span></p>
 
       <div className="flex">
-      <form action="">
+      <form id="answer-sheet" action="">
           <h2 id="answer-title">Select an answer: </h2>
-          <input className="answers" type="radio" name="answer" value="" /> {answers[0]} <br />
-          <input className="answers" type="radio" name="answer" value="" /> {answers[1]} <br />
-          <input className="answers" type="radio" name="answer" value="" /> {answers[2]} <br />
-          <input className="answers" type="radio" name="answer" value="" /> {answers[3]} <br />
+          <input type="radio" name="answer" value={answers[0]} /> 
+          <label className="answers">{answers[0]}</label> 
+          <input type="radio" name="answer" value={answers[1]} /> 
+          <label className="answers">{answers[1]}</label> <br />
+          <input type="radio" name="answer" value={answers[2]} /> 
+          <label className="answers">{answers[2]}</label> <br />
+          <input type="radio" name="answer" value={answers[3]} />
+          <label className="answers">{answers[3]}</label> <br />
       </form>
   
       <button className="go">Enter</button>
