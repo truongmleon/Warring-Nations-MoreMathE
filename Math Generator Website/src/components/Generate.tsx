@@ -8,15 +8,19 @@ const checkAnswer = (answer: string) => {
   for (let i = 0; i < buttons.length; i++) {
     (buttons[i] as HTMLButtonElement).disabled = true;
   }
+
+  (document.getElementById('hide') as HTMLElement).style.display = 'block';
 }
 
 const arithmetic = () => {
   const operations: string[] = [" + ", " + ", " - ", " - ", " * ", " / "];
   const randomOperations: string[] = [operations[Math.floor(Math.random() * operations.length)], operations[Math.floor(Math.random() * operations.length)], operations[Math.floor(Math.random() * operations.length)]];
-  let inPlace = [];
-  let random = Math.floor(Math.random() * 4);
-  let result = "69";
-  let answer = 0;
+  let link: string = "https://www.wolframalpha.com/input?i=";
+  let toLink: string = ""; 
+  let result: string = "69";
+  let inPlace: number[] = [];
+  let random: number = Math.floor(Math.random() * 4);
+  let answer: number = 0;
 
   for (let i: number = 0; i < randomOperations.length; i++) {
     result += randomOperations[i];
@@ -45,7 +49,16 @@ const arithmetic = () => {
     answers[random] = eval(resultArr.join("")).toFixed(2);
   }
 
-  return [answer.toString(), result];
+  console.log(result)
+  toLink = result;
+
+  toLink = toLink.replace(" + ", "+%2B+");
+  toLink = toLink.replace(" - ", "+-+");
+  toLink = toLink.replace(" * ", "+*+");
+  toLink = toLink.replace(" / ", "+%2F+");
+  console.log(toLink)
+
+  return [answer.toString(), result, link + toLink];
 }
 
 const geometry = () => {
@@ -102,10 +115,12 @@ const Generate = (props: any) => {
       <button onClick={() => checkAnswer(result[0])} className="go">Enter</button>
 
       <div>
-        <h2>Correct Answer:</h2>
-
-        
+  
       </div>
+      </div>
+      <div id="hide">
+      <h2 className="answer">Correct Answer: {result[0]}</h2>
+      <h2 className="answer"><a target="_blank" href={result[2]}>Solution</a></h2>
       </div>
        </div>
     )
