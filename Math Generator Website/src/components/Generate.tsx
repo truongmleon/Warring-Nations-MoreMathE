@@ -2,12 +2,11 @@ let answers: number[] = [];
 
 const checkAnswer = (answer: string) => {
   const result: string = (document.querySelector('input[name="answer"]:checked') as HTMLInputElement).value;
-  const buttons: NodeListOf<HTMLElement> = document.getElementsByName('answer');
+  const buttons: NodeListOf<HTMLElement> = document.getElementsByName('answer') as NodeListOf<HTMLElement>;
   result == answer ? window.alert("Correct!") : window.alert("You suck!");
   
   for (let i = 0; i < buttons.length; i++) {
-    buttons[i].disable = true;
-    console.log(buttons[i])
+    (buttons[i] as HTMLButtonElement).disabled = true;
   }
 }
 
@@ -101,6 +100,12 @@ const Generate = (props: any) => {
       </form>
   
       <button onClick={() => checkAnswer(result[0])} className="go">Enter</button>
+
+      <div>
+        <h2>Correct Answer:</h2>
+
+        
+      </div>
       </div>
        </div>
     )
