@@ -49,14 +49,12 @@ const arithmetic = () => {
     answers[random] = eval(resultArr.join("")).toFixed(2);
   }
 
-  console.log(result)
   toLink = result;
 
   toLink = toLink.replaceAll(" + ", "+%2B+");
   toLink = toLink.replaceAll(" - ", "+-+");
   toLink = toLink.replaceAll(" * ", "+*+");
   toLink = toLink.replaceAll(" / ", "+%2F+");
-  console.log(toLink)
 
   return [answer.toString(), result, link + toLink];
 }
