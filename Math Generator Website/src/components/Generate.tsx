@@ -52,10 +52,10 @@ const arithmetic = () => {
   console.log(result)
   toLink = result;
 
-  toLink = toLink.replace(" + ", "+%2B+");
-  toLink = toLink.replace(" - ", "+-+");
-  toLink = toLink.replace(" * ", "+*+");
-  toLink = toLink.replace(" / ", "+%2F+");
+  toLink = toLink.replaceAll(" + ", "+%2B+");
+  toLink = toLink.replaceAll(" - ", "+-+");
+  toLink = toLink.replaceAll(" * ", "+*+");
+  toLink = toLink.replaceAll(" / ", "+%2F+");
   console.log(toLink)
 
   return [answer.toString(), result, link + toLink];
