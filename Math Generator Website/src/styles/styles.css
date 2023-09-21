@@ -1,10 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Rubik+Pixels&display=swap");
 *, *::before, *::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body, html {
   margin: 0;
   padding: 0;
 }
-/*# sourceMappingURL=styles.css.map */
+
+.titles, .go, #stages, #label {
+  text-align: center;
+  font-family: "Roboto Mono", monospace;
+}
+
+.titles {
+  font-size: 4em;
+  font-family: "Rubik Pixels", cursive;
+}
+
+#stages {
+  font-size: 2em;
+  height: 60px;
+}
+
+#label {
+  font-size: 2.8em;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.go {
+  font-size: 2.5em;
+  background-color: #fff;
+  width: 170px;
+  margin: 10px;
+  border: 3px #fff solid;
+  border-radius: 40px;
+  box-shadow: 4px 4px 5px 2px rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+}
+
+.go:hover {
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.math {
+  font-size: 2em;
+}
+
+#answer-title {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.7em;
+}
+
+.answers {
+  font-family: "Roboto Mono", monospace;
+  font-size: 2em;
+}
+
+input[type=radio] {
+  border: 0px;
+  width: 100%;
+  height: 2em;
+}
+
+.answer {
+  text-align: center;
+  font-family: "Roboto Mono", monospace;
+}
+
+#hide {
+  display: none;
+}/*# sourceMappingURL=styles.css.map */
