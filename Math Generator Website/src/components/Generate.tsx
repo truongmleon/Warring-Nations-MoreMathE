@@ -64,23 +64,14 @@ const geometry = () => {
   return result;
 }
 
-const algebruh = () => {
-  let result = [""];
-  return result;
-}
-
-const calculus = () => {
-  let result = [""];
-  return result;
-}
 
 const abstract = () => {
   let result = [""];
   return result;
 }
 
-const stages: string[] = ["arithmetic", "geometry", "algebruh", "calculus", "abstract"];
-const stageFunctions: string[][] = [arithmetic(), geometry(), algebruh(), calculus(), abstract()];
+const stages: string[] = ["arithmetic", "geometry", "abstract"];
+const stageFunctions: string[][] = [arithmetic(), geometry(), abstract()];
 
 const Generate = (props: any) => {
     const stage: string = props.stage;
