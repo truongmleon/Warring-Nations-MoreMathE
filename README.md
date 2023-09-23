@@ -16,4 +16,4 @@ https://nsdrozario.github.io/song.html?a=2&s=0
 
 Art is made by me using GIMP and Procreate.
 
-Open source forever. No attribution required.
+Open source forever.
