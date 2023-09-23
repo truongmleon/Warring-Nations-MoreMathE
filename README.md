@@ -8,12 +8,12 @@ The Math Club advisor suggested to a reworked version of the game, containing wh
 
 Attributions:
 
-Music is by Nathaniel D'Rozario.
+Music by Nathaniel D'Rozario.
 
 https://github.com/nsdrozario
 
 https://nsdrozario.github.io/song.html?a=2&s=0
 
-Art is made by me using GIMP and Procreate.
+Art by me with GIMP and Procreate.
 
 Open source forever.
