@@ -5,14 +5,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    rollupOptions: {
-      input: {
-        arithmetic: 'arithmetic.html',
-        geometry: "geometry.html",
-        algebruh: "algebruh.html",
-        calculus: "calculus.html",
-        abstract: "abstract.html"
-      },
-    },
+
   },
 })
