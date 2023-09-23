@@ -7,7 +7,12 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
+        main: "index.html",
         arithmetic: 'arithmetic.html',
+        geometry: "geometry.html",
+        algebruh: "algebruh.html",
+        calculus: "calculus.html",
+        abstract: "abstract.html"
       },
     },
   },
