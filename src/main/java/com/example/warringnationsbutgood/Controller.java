@@ -147,8 +147,9 @@ public class Controller {
                 + "You%20have%20used%20" + currentPlayer.getTotalMana() + "%20mana%0A"
                 + "You%20are%20in%20the%20" + currentPlayer.getStage() + "%20stage%0A%0A"
                 + "===========================%0A%0A"
-                + "For Wolfman problems (Algebruh and Calculus), you get 3 tries."
-                + "Reply%20with%20Question[right/wrong],attack%20[team],%20defend,%20or%20mana%20(manaing%20twice%20is%20not%20allowed)."
+                + "For Wolfman problems (Algebruh and Calculus), you get 3 tries.%0A"
+                + "For Geometry problems, just do 1 Khan Academy one%0A"
+                + "Reply%20with%20Question[right/wrong],attack%20[team],%20defend,%20or%20mana%20(manaing%20twice%20is%20not%20allowed).%0A"
                 + "";
     }
 
