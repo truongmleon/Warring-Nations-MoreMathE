@@ -59,30 +59,10 @@ const arithmetic = () => {
   return [answer.toString(), result, link + toLink];
 }
 
-const geometry = () => {
-  let result = [""];
-  return result;
-}
-
-
-const abstract = () => {
-  let result = [""];
-  return result;
-}
-
-const stages: string[] = ["arithmetic", "geometry", "abstract"];
-const stageFunctions: string[][] = [arithmetic(), geometry(), abstract()];
-
-const Generate = (props: any) => {
-    const stage: string = props.stage;
+const Generate = () => {
     let result: string[] = [];
 
-    for (let i: number = 0; i < stages.length; i++) {
-      if (stages[i] === stage) {
-        result = stageFunctions[i];
-        break;
-      }
-    }
+    result = arithmetic();
 
     return (  
        <div>
