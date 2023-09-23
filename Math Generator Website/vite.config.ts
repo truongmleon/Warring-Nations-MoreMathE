@@ -8,6 +8,10 @@ export default defineConfig({
     rollupOptions: {
       input: {
         arithmetic: 'arithmetic.html',
+        geometry: "geometry.html",
+        algebruh: "algebruh.html",
+        calculus: "calculus.html",
+        abstract: "abstract.html"
       },
     },
   },
