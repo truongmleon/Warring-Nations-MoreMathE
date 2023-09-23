@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        arithmetic: 'arithmetic.html',
+        arithmetic: '/arithmetic.html',
 
       },
     },
