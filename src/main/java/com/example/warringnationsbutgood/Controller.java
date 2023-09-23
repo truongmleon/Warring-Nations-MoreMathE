@@ -138,7 +138,7 @@ public class Controller {
         return "===========================%0A"
                 + "WARRING%20NATIONS%0A"
                 + "===========================%0A%0A"
-                + "Stats%20this%20round:%0A"
+                + "Stats%20:%0A"
                 + "Attack:%20" + currentPlayer.getAttack() + "%0A"
                 + "Defense:%20" + currentPlayer.getDefense() + "%0A"
                 + "Mana:%20" + currentPlayer.getMana() + "%0A%0A"
@@ -147,8 +147,8 @@ public class Controller {
                 + "You%20have%20used%20" + currentPlayer.getTotalMana() + "%20mana%0A"
                 + "You%20are%20in%20the%20" + currentPlayer.getStage() + "%20stage%0A%0A"
                 + "===========================%0A%0A"
-                + "For Wolfman problems (Algebruh and Calculus), you get 3 tries.%0A"
-                + "For Geometry problems, just do 1 Khan Academy one%0A"
+                + "For%20Wolfman%20problems%20(Algebruh%20and%20Calculus),%20you%20get%203%20tries.%0A"
+                + "For%20Geometry%20problems,%20just%20do%201%20Khan%20Academy%20one%0A"
                 + "Reply%20with%20Question[right/wrong],attack%20[team],%20defend,%20or%20mana%20(manaing%20twice%20is%20not%20allowed).%0A"
                 + "";
     }
