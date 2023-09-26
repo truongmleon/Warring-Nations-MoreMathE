@@ -8,6 +8,8 @@ The Math Club advisor suggested to make a reworked version of the game, containi
 
 Attributions:
 
+Inspired by Warring Nations, a game made by Samuel Do.
+
 Music by Nathaniel D'Rozario.
 
 https://github.com/nsdrozario
