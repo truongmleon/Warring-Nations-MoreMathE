@@ -1,6 +1,6 @@
 # Warring-Nations-MoreMathEdition
 
-Samuel Do, a previous Kentwood student, created a game for Math Club: Warring Nations.
+Samuel Do, a previous Kentwood student and Math Club President (2017-2020), created a game for Math Club: Warring Nations.
 
 The Math Club community considers the game to be a staple in Math Club culture. 
 
