@@ -94,6 +94,21 @@
         <!-- Added content via Java -->
     </GridPane>
 
+    <GridPane visible="false" translateY="-30" id="playerInfo" alignment="center" fx:id="player" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+        <Button onAction="#exit">
+            Exit
+        </Button>
+        <Button>
+            Attack
+        </Button>
+        <Button>
+            Defend
+        </Button>
+        <Button>
+            Mana
+        </Button>
+    </GridPane>
+
     <GridPane visible="false" fx:id="stagesMenu" id="stages" translateY="705" translateX="180">
         <Text GridPane.columnIndex="1" styleClass="arrow" text="Stages: "/>
         <Text GridPane.columnIndex="2" id="arithmetic"> Arithmetic </Text>

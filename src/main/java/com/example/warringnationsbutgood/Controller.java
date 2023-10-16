@@ -24,6 +24,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Objects;
 
 public class Controller {
@@ -57,7 +58,7 @@ public class Controller {
     private Button lobby, back, go;
 
     @FXML
-    private GridPane playerInfo, gameMenu, actionMenu, settingsMenu, stagesMenu;
+    private GridPane playerInfo, gameMenu, actionMenu, settingsMenu, stagesMenu, player;
 
     @FXML
     protected void hostButtonClick(ActionEvent event) throws IOException {
@@ -122,10 +123,13 @@ public class Controller {
     }
 
     private String getProblem(String current) {
-        String problem = "";
+        // https://mathmaker.vercel.app/
+        String problem = "https://mathmaker.vercel.app/";
 
         for (int i = 0; i < stages.length; i++) {
-
+            if (Objects.equals(current, stages[i])) {
+                return problem + stages[i].toLowerCase() + ".html";
+            }
         }
 
         return problem;
@@ -138,7 +142,7 @@ public class Controller {
         return "===========================%0A"
                 + "WARRING%20NATIONS%0A"
                 + "===========================%0A%0A"
-                + "Stats%20:%0A"
+                + "Stats:%0A"
                 + "Attack:%20" + currentPlayer.getAttack() + "%0A"
                 + "Defense:%20" + currentPlayer.getDefense() + "%0A"
                 + "Mana:%20" + currentPlayer.getMana() + "%0A%0A"
@@ -147,8 +151,9 @@ public class Controller {
                 + "You%20have%20used%20" + currentPlayer.getTotalMana() + "%20mana%0A"
                 + "You%20are%20in%20the%20" + currentPlayer.getStage() + "%20stage%0A%0A"
                 + "===========================%0A%0A"
+                + "Problem:%20" + problem + "%0A"
                 + "For%20Wolfman%20problems%20(Algebruh%20and%20Calculus),%20you%20get%203%20tries.%0A"
-                + "For%20Geometry%20problems,%20just%20do%201%20Khan%20Academy%20one%0A"
+                + "For%20Geometry%20problems,%20just%20do%201%20Khan%20Academy%20one.%0A"
                 + "Reply%20with%20Question[right/wrong],attack%20[team],%20defend,%20or%20mana%20(manaing%20twice%20is%20not%20allowed).%0A"
                 + "";
     }
@@ -183,11 +188,22 @@ public class Controller {
 
     }
 
+    public void exit() {
+        player.setVisible(false);
+    }
+
     private void playerActions(ActionEvent event) {
+        Button sourceButton = (Button) event.getSource();
+        player.setVisible(true);
+    }
+
+    private void createPlayerActions() {
         GridPane menu = new GridPane();
         menu.setPrefSize(200, 150);
         menu.setVgap(10);
         menu.setHgap(20);
+
+        player.getChildren().add(menu);
     }
 
     private void getPlayers() {
@@ -346,5 +362,4 @@ public class Controller {
 
         stagesMenu.setVisible(true);
     }
-
 }
