@@ -19,3 +19,5 @@ https://nsdrozario.github.io/song.html?a=2&s=0
 Art by me with GIMP and Procreate.
 
 Open source forever.
+
+To the person who is one day remaking this game: I suggest creating new code and learn about Data Structures before beginning. After my DS class, this project would've been a lot easier with maps.

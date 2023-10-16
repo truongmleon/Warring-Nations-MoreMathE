@@ -194,6 +194,17 @@ public class Controller {
 
     private void playerActions(ActionEvent event) {
         Button sourceButton = (Button) event.getSource();
+        Player user;
+
+        for (int i = 0; i < playerButtons.length; i++) {
+            if (playerButtons[i].equals((sourceButton))) {
+                user = playersInfo.get(i);
+                break;
+            }
+        }
+
+
+
         player.setVisible(true);
     }
 
