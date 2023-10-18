@@ -20,7 +20,9 @@
         </image>
     </ImageView>
 
-    <ImageView fitWidth="1400.0" fitHeight="800" id="harp"></ImageView>
+    <ImageView fitWidth="1400.0" fitHeight="800" id="harp">
+        <!--None-->
+    </ImageView>
 
     <VBox translateY="-270" styleClass="titleContainer">
         <Text styleClass="title" text="How to Play?!?!?!?!!"/>

@@ -94,19 +94,21 @@
         <!-- Added content via Java -->
     </GridPane>
 
-    <GridPane visible="false" translateY="-30" id="playerInfo" alignment="center" fx:id="player" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
-        <Button onAction="#exit">
-            Exit
-        </Button>
-        <Button>
-            Attack
-        </Button>
-        <Button>
-            Defend
-        </Button>
-        <Button>
-            Mana
-        </Button>
+    <GridPane visible="false" translateY="-30" alignment="center" fx:id="player" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+        <VBox id="playerActions">
+            <Button GridPane.rowIndex="1" onAction="#exit">
+                Exit
+            </Button>
+            <Button GridPane.rowIndex="2">
+                Attack
+            </Button>
+            <Button GridPane.rowIndex="3">
+                Defend
+            </Button>
+            <Button GridPane.rowIndex="4">
+                Mana
+            </Button>
+        </VBox>
     </GridPane>
 
     <GridPane visible="false" fx:id="stagesMenu" id="stages" translateY="705" translateX="180">

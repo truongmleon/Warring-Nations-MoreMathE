@@ -47,6 +47,8 @@ public class Controller {
     private ArrayList<Player> playersInfo;
     private GridPane menu = new GridPane();
     private GridPane actions = new GridPane();
+
+    private Player currentPlayer;
     @FXML
     private VBox gameTitle;
 
@@ -188,17 +190,29 @@ public class Controller {
 
     }
 
-    public void exit() {
+    private void attack() {
+
+    }
+
+    private void defend() {
+
+    }
+
+    private void mana() {
+
+    }
+
+    @FXML
+    private void exit() {
         player.setVisible(false);
     }
 
     private void playerActions(ActionEvent event) {
         Button sourceButton = (Button) event.getSource();
-        Player user;
 
         for (int i = 0; i < playerButtons.length; i++) {
             if (playerButtons[i].equals((sourceButton))) {
-                user = playersInfo.get(i);
+                currentPlayer = playersInfo.get(i);
                 break;
             }
         }
@@ -206,15 +220,6 @@ public class Controller {
 
 
         player.setVisible(true);
-    }
-
-    private void createPlayerActions() {
-        GridPane menu = new GridPane();
-        menu.setPrefSize(200, 150);
-        menu.setVgap(10);
-        menu.setHgap(20);
-
-        player.getChildren().add(menu);
     }
 
     private void getPlayers() {
