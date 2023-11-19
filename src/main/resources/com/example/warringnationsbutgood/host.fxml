@@ -94,18 +94,18 @@
         <!-- Added content via Java -->
     </GridPane>
 
-    <GridPane visible="false" translateY="-30" alignment="center" fx:id="player" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
-        <VBox id="playerActions">
-            <Button GridPane.rowIndex="1" onAction="#exit">
+    <GridPane visible="false" translateY="-30" alignment="center" fx:id="player" prefHeight="220.0" prefWidth="220.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+        <VBox id="playerActions" prefHeight="200.0" prefWidth="200.0">
+            <Button GridPane.rowIndex="1" GridPane.columnIndex="1" onAction="#exit" id="commands">
                 Exit
             </Button>
-            <Button GridPane.rowIndex="2">
+            <Button GridPane.rowIndex="2" GridPane.columnIndex="1" id="commands">
                 Attack
             </Button>
-            <Button GridPane.rowIndex="3">
+            <Button GridPane.rowIndex="3" GridPane.columnIndex="1" id="commands">
                 Defend
             </Button>
-            <Button GridPane.rowIndex="4">
+            <Button GridPane.rowIndex="4" GridPane.columnIndex="1" id="commands">
                 Mana
             </Button>
         </VBox>

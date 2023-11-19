@@ -1,11 +1,6 @@
 package com.example.warringnationsbutgood;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ScrollPane;
@@ -17,15 +12,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import java.awt.*;
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.URI;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.Objects;
+import javafx.scene.*;
+import javafx.fxml.*;
+import java.awt.*;
+import java.io.*;
+import java.util.*;
 
 public class Controller {
     //Reusable components
