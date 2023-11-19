@@ -52,7 +52,8 @@ public class Controller {
     private Button lobby, back, go;
 
     @FXML
-    private GridPane playerInfo, gameMenu, actionMenu, settingsMenu, stagesMenu, player;
+    private GridPane playerInfo, gameMenu, actionMenu, settingsMenu, stagesMenu, player, name;
+
 
     @FXML
     protected void hostButtonClick(ActionEvent event) throws IOException {
@@ -196,6 +197,7 @@ public class Controller {
 
     @FXML
     private void exit() {
+        name.setVisible(false);
         player.setVisible(false);
     }
 
@@ -209,8 +211,10 @@ public class Controller {
             }
         }
 
+        name = new GridPane();
 
-
+        name.add(new Text(currentPlayer.getName()), 0, 0);
+        name.setVisible(true);
         player.setVisible(true);
     }
 
@@ -218,7 +222,7 @@ public class Controller {
         //Scrollable menu to get players email and name
         ScrollPane scrollPane = new ScrollPane();
         scrollPane.setPrefSize(700, 250);
-        scrollPane.setId("-fx-background-color: transparent;");
+        //scrollPane.setId("-fx-background-color: transparent;");
 
         GridPane menu = new GridPane();
         menu.setPrefSize(600, 50 + 60 * playersCount);

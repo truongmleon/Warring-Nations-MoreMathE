@@ -9,7 +9,6 @@ import javafx.scene.media.MediaPlayer;
 import java.awt.*;
 import java.io.IOException;
 
-//GOAL: FINISH BY NOVEMBER 1ST!!!!!
 public class GUI extends Application {
 
     private static final Dimension size = Toolkit.getDefaultToolkit().getScreenSize();

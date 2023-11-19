@@ -60,10 +60,11 @@ public class Player {
     public int getMana() { return this.mana; }
     public int getTotalMana() { return this.totalMana; }
     public int getHealth() { return this.health; }
-    public String getStage() { return  this.stage; }
+    public String getStage() { return this.stage; }
     public String getStatus() { return this.status; }
     public String getCurrentStageColor() { return this.currentStageColor; }
     public String getCurrentStatusColor() { return this.currentStatusColor; }
+    public String getName() { return this.name; }
 
     private void attackPlayer(Player other) {
         if (this.attack > other.getDefense()) {
