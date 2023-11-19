@@ -161,3 +161,13 @@
     -fx-fill: #FF00FF; /*Magenta*/
 }
 
+#user {
+    -fx-font-family: 'Electrolize', sans-serif;
+    -fx-font-size: 2em;
+    -fx-padding: 5px 10px;
+}
+
+#user:hover {
+
+}
+

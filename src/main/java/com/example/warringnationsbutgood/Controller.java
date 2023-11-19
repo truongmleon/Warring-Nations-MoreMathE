@@ -52,7 +52,10 @@ public class Controller {
     private Button lobby, back, go;
 
     @FXML
-    private GridPane playerInfo, gameMenu, actionMenu, settingsMenu, stagesMenu, player, name;
+    private GridPane playerInfo, gameMenu, actionMenu, settingsMenu, stagesMenu, player;
+
+    @FXML
+    private Text name;
 
 
     @FXML
@@ -197,7 +200,6 @@ public class Controller {
 
     @FXML
     private void exit() {
-        name.setVisible(false);
         player.setVisible(false);
     }
 
@@ -211,10 +213,8 @@ public class Controller {
             }
         }
 
-        name = new GridPane();
+        name.setText(currentPlayer.getName());
 
-        name.add(new Text(currentPlayer.getName()), 0, 0);
-        name.setVisible(true);
         player.setVisible(true);
     }
 

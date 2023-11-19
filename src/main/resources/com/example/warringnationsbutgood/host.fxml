@@ -98,9 +98,9 @@
     <GridPane visible="false" translateY="-30" alignment="center" fx:id="player" prefHeight="320.0" prefWidth="220.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
         <VBox id="playerActions" prefHeight="300.0" prefWidth="200.0" spacing="10">
 
-        <GridPane visible="false" fx:id="name" prefHeight="300.0" prefWidth="200.0">
-            <!-- Added content via Java -->
-        </GridPane>
+            <Text fx:id="name" GridPane.rowIndex="0" GridPane.columnIndex="1">
+
+            </Text>
 
             <Button GridPane.rowIndex="1" GridPane.columnIndex="1" onAction="#exit" id="commands">
                 Exit
