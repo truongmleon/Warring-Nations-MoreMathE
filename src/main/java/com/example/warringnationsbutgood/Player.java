@@ -13,6 +13,14 @@ public class Player {
             "Abstract", "#FF00FF"
     );
 
+    private final Map<String, int[]> manaCalculation = Map.of(
+            "Arithmetic", new int[] {0, 9},
+            "Geometry", new int[] {15, 14},
+            "Algebruh", new int[] {35, 19},
+            "Calculus", new int[] {60, 29},
+            "Abstract", new int[] {90, 39}
+    );
+
     private final Map<String, String> statuses = Map.of(
             "SAFE", "#00FFFF",
             "GAINED", "#FFC0CB",
@@ -22,8 +30,8 @@ public class Player {
             "SUCCESS", "#ADFF2F"
     );
 
-    private final int[] manaForStage = {0, 15, 35, 60, 90};
-    private final int[] factors = {9, 14, 19, 29, 39};
+    private final String[] stageNames = {"Arithmetic", "Geometry", "Algebruh", "Calculus", "Abstract"};
+
     private int health, attack, defense, mana, totalMana, statsFactor;
     private String stage, name, currentStageColor, status, currentStatusColor;
 
@@ -32,21 +40,8 @@ public class Player {
         this.stage = stage;
         this.name = name;
         this.status = "SAFE";
-
-
-
-        if (!stage.equals("Arithmetic")) {
-            for (int i = 1; i < stages.length; i++) {
-                if (stage.equals(stages[i])) {
-                    this.totalMana = manaForStage[i - 1];
-                    this.currentStageColor = stageColors[i];
-                    break;
-                }
-            }
-        } else {
-            this.currentStageColor = stageColors[0];
-        }
-
+        this.totalMana = manaCalculation.get(stage)[0];
+        this.currentStageColor = stages.get(stage);
         setStatusColor();
     }
 
@@ -54,9 +49,9 @@ public class Player {
         setStatusColor();
     }
 
-    private void setStatusColor() { this.currentStatusColor = statuses.get(this.status); }
+    private void setStatusColor() { currentStatusColor = statuses.get(status); }
 
-    public void bonusMana(int bonus) { this.totalMana += bonus; }
+    public void bonusMana(int bonus) { totalMana += bonus; }
 
     public void setHitpoints(int healthLost) {
         this.health -= healthLost;
@@ -66,21 +61,21 @@ public class Player {
         }
     }
 
-    public int getAttack() { return this.attack; }
-    public int getDefense() { return this.defense; }
-    public int getMana() { return this.mana; }
-    public int getTotalMana() { return this.totalMana; }
-    public int getHealth() { return this.health; }
-    public String getStage() { return this.stage; }
-    public String getStatus() { return this.status; }
-    public String getCurrentStageColor() { return this.currentStageColor; }
-    public String getCurrentStatusColor() { return this.currentStatusColor; }
+    public int getAttack() { return attack; }
+    public int getDefense() { return defense; }
+    public int getMana() { return mana; }
+    public int getTotalMana() { return totalMana; }
+    public int getHealth() { return health; }
+    public String getStage() { return stage; }
+    public String getStatus() { return status; }
+    public String getCurrentStageColor() { return currentStageColor; }
+    public String getCurrentStatusColor() { return currentStatusColor; }
     public String getName() { return this.name; }
 
     private void attackPlayer(Player other) {
-        if (this.attack > other.getDefense()) {
+        if (attack > other.getDefense()) {
             other.setHitpoints(attack - other.getDefense());
-            this.bonusMana(statsFactor / 4);
+            bonusMana(statsFactor / 4);
             attackFailed = false;
         } else {
             other.bonusMana(statsFactor / 4);
@@ -88,30 +83,30 @@ public class Player {
         }
     }
 
-    private void defend() { this.defense = this.getDefense() * 2; }
+    private void defend() { defense = getDefense() * 2; }
 
     private void useMana() {
-        this.totalMana += this.mana;
-
+        totalMana += this.mana;
+        List<Integer> manaThreshold = new ArrayList<>();
         //After mana is added, check if they move up a stage
-        for (int i = manaForStage.length - 1; i > -1; i--) {
-            if (manaForStage[i] < this.totalMana) {
-                this.stage = stages[i + 1];
-                break;
+
+        for (int[] values : manaCalculation.values()) {
+            manaThreshold.add(values[1]);
+        }
+
+        Collections.sort(manaThreshold);
+
+        for (int i = manaThreshold.size() - 1; i > 0; i--) {
+            if (totalMana > manaThreshold.get(i)) {
+                stage = stageNames[i];
+                totalMana = manaCalculation.get(stage)[0];
+                currentStageColor = stages.get(stage);
             }
         }
     }
 
     public void generate() {
-        statsFactor = 0;
-
-        //Checks for current stage for generating stats
-        for (int i = 0; i < stages.length; i++) {
-            if (stage.equals(stages[i])) {
-                statsFactor = factors[i];
-                break;
-            }
-        }
+        statsFactor = manaCalculation.get(stage)[1];
 
         //girl math
         this.attack = (int) (Math.random() * statsFactor) + statsFactor / 5;
