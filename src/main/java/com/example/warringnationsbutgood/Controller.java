@@ -205,6 +205,11 @@ public class Controller {
 
     private void playerActions(ActionEvent event) {
         Button sourceButton = (Button) event.getSource();
+        Robot robot = null;
+
+        try {
+            robot = new Robot();
+        } catch (Exception ignored) { }
 
         for (int i = 0; i < playerButtons.length; i++) {
             if (playerButtons[i].equals((sourceButton))) {
@@ -213,8 +218,8 @@ public class Controller {
             }
         }
 
+        robot.mouseMove((int) (GUI.getWidth() / 4), (int) (GUI.getWidth() / 4));
         name.setText(currentPlayer.getName());
-
         player.setVisible(true);
     }
 

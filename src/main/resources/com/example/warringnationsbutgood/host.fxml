@@ -95,8 +95,8 @@
         <!-- Added content via Java -->
     </GridPane>
 
-    <GridPane visible="false" translateY="200" translateX="390" alignment="center" fx:id="player" prefHeight="320.0" prefWidth="220.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
-        <VBox id="playerActions" prefHeight="300.0" prefWidth="200.0" spacing="10">
+    <GridPane visible="false" translateY="145" translateX="430" alignment="center" fx:id="player" prefHeight="320.0" prefWidth="220.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+        <VBox id="playerActions" prefHeight="280.0" prefWidth="200.0" spacing="10">
 
             <Text fx:id="name" id="name" GridPane.rowIndex="0" GridPane.columnIndex="1">
                 <!-- Added content via Java -->
