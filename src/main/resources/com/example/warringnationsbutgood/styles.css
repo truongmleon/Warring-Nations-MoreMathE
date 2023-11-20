@@ -129,7 +129,7 @@
 }
 
 #playerActions {
-    -fx-background-color: rgba(42, 45, 49, 0.8);
+    -fx-background-color: rgba(42, 45, 49, 0.9);
     -fx-padding: 20px 30px;
 }
 
@@ -167,7 +167,10 @@
     -fx-padding: 5px 10px;
 }
 
-#user:hover {
-
+#name {
+    -fx-fill: #fafafa;
+    -fx-font-size: 2.2em;
 }
+
+
 

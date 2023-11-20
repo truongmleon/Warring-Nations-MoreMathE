@@ -95,25 +95,17 @@
         <!-- Added content via Java -->
     </GridPane>
 
-    <GridPane visible="false" translateY="-30" alignment="center" fx:id="player" prefHeight="320.0" prefWidth="220.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <GridPane visible="false" translateY="200" translateX="390" alignment="center" fx:id="player" prefHeight="320.0" prefWidth="220.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
         <VBox id="playerActions" prefHeight="300.0" prefWidth="200.0" spacing="10">
 
-            <Text fx:id="name" GridPane.rowIndex="0" GridPane.columnIndex="1">
-
+            <Text fx:id="name" id="name" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                <!-- Added content via Java -->
             </Text>
 
-            <Button GridPane.rowIndex="1" GridPane.columnIndex="1" onAction="#exit" id="commands">
-                Exit
-            </Button>
-            <Button GridPane.rowIndex="2" GridPane.columnIndex="1" id="commands">
-                Attack
-            </Button>
-            <Button GridPane.rowIndex="3" GridPane.columnIndex="1" id="commands">
-                Defend
-            </Button>
-            <Button GridPane.rowIndex="4" GridPane.columnIndex="1" id="commands">
-                Mana
-            </Button>
+            <Button GridPane.rowIndex="2" GridPane.columnIndex="1" id="commands">Attack</Button>
+            <Button GridPane.rowIndex="3" GridPane.columnIndex="1" id="commands">Defend</Button>
+            <Button GridPane.rowIndex="4" GridPane.columnIndex="1" id="commands">Mana</Button>
+            <Button GridPane.rowIndex="1" GridPane.columnIndex="1" onAction="#exit" id="commands">Exit</Button>
         </VBox>
     </GridPane>
 
