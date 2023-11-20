@@ -102,9 +102,9 @@
                 <!-- Added content via Java -->
             </Text>
 
-            <Button GridPane.rowIndex="2" GridPane.columnIndex="1" id="commands">Attack</Button>
-            <Button GridPane.rowIndex="3" GridPane.columnIndex="1" id="commands">Defend</Button>
-            <Button GridPane.rowIndex="4" GridPane.columnIndex="1" id="commands">Mana</Button>
+            <Button GridPane.rowIndex="2" GridPane.columnIndex="1" onAction="#attack" id="commands">Attack</Button>
+            <Button GridPane.rowIndex="3" GridPane.columnIndex="1" onAction="#defend" id="commands">Defend</Button>
+            <Button GridPane.rowIndex="4" GridPane.columnIndex="1" onAction="#mana" id="commands">Mana</Button>
             <Button GridPane.rowIndex="1" GridPane.columnIndex="1" onAction="#exit" id="commands">Exit</Button>
         </VBox>
     </GridPane>

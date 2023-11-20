@@ -120,6 +120,26 @@ public class Controller {
         playerInfo.setVisible(false);
     }
 
+    @FXML
+    private void attack() {
+
+    }
+
+    @FXML
+    private void defend() {
+
+    }
+
+    @FXML
+    private void mana() {
+
+    }
+
+    @FXML
+    private void exit() {
+        player.setVisible(false);
+    }
+
     private String getProblem(String current) {
         // https://mathmaker.vercel.app/
         String problem = "https://mathmaker.vercel.app/";
@@ -184,23 +204,6 @@ public class Controller {
 
     private void mines(ActionEvent event) {
 
-    }
-
-    private void attack() {
-
-    }
-
-    private void defend() {
-
-    }
-
-    private void mana() {
-
-    }
-
-    @FXML
-    private void exit() {
-        player.setVisible(false);
     }
 
     private void playerActions(ActionEvent event) {
