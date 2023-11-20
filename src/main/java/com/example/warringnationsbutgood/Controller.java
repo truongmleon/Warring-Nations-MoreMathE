@@ -218,7 +218,7 @@ public class Controller {
             }
         }
 
-        robot.mouseMove((int) (GUI.getWidth() / 4), (int) (GUI.getWidth() / 4));
+        robot.mouseMove((int) (GUI.getWidth() / 1.25), (int) (GUI.getHeight() / 1.35));
         name.setText(currentPlayer.getName());
         player.setVisible(true);
     }
