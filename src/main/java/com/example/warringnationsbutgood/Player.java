@@ -1,13 +1,28 @@
 package com.example.warringnationsbutgood;
+import java.util.*;
 
 public class Player {
     private boolean isAlive = true;
     private boolean attackFailed;
-    private final String[] stages = {"Arithmetic", "Geometry", "Algebruh", "Calculus", "Abstract"};
-    private final String[] stageColors = {"#00FFFF", "#FFFF00", "#ADFF2F", "#FF0000", "#FF00FF"};
-    private final String[] statuses = {"SAFE", "GAINED", "FAILED", "ATTACKED", "DEFENDED", "SUCCESS"};
-    private final String[] statusColors = {"#00FFFF", "#FFC0CB", "#FF0000", "#FF0000", "#FFFF00", "#ADFF2F"};
-    private final int[] manaForStage = {15, 35, 60, 90};
+
+    private final Map<String, String> stages = Map.of(
+            "Arithmetic", "#00FFFF",
+            "Geometry", "#FFFF00",
+            "Algebruh", "#ADFF2F",
+            "Calculus", "#FF0000",
+            "Abstract", "#FF00FF"
+    );
+
+    private final Map<String, String> statuses = Map.of(
+            "SAFE", "#00FFFF",
+            "GAINED", "#FFC0CB",
+            "FAILED", "#FF0000",
+            "ATTACKED", "#FF0000",
+            "DEFENDED", "#FFFF00",
+            "SUCCESS", "#ADFF2F"
+    );
+
+    private final int[] manaForStage = {0, 15, 35, 60, 90};
     private final int[] factors = {9, 14, 19, 29, 39};
     private int health, attack, defense, mana, totalMana, statsFactor;
     private String stage, name, currentStageColor, status, currentStatusColor;
@@ -17,6 +32,8 @@ public class Player {
         this.stage = stage;
         this.name = name;
         this.status = "SAFE";
+
+
 
         if (!stage.equals("Arithmetic")) {
             for (int i = 1; i < stages.length; i++) {
@@ -37,13 +54,7 @@ public class Player {
         setStatusColor();
     }
 
-    private void setStatusColor() {
-        for (int i = 0; i < statuses.length; i++) {
-            if (statuses[i].equals(status)) {
-                this.currentStatusColor = statusColors[i];
-            }
-        }
-    }
+    private void setStatusColor() { this.currentStatusColor = statuses.get(this.status); }
 
     public void bonusMana(int bonus) { this.totalMana += bonus; }
 
@@ -102,6 +113,7 @@ public class Player {
             }
         }
 
+        //girl math
         this.attack = (int) (Math.random() * statsFactor) + statsFactor / 5;
         this.defense = (int) (Math.random() * statsFactor) + statsFactor / 5;
         this.mana = (int) (Math.random() * statsFactor / 2) + statsFactor / 6;
