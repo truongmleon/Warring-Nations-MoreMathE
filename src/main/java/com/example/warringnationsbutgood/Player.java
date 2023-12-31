@@ -32,10 +32,11 @@ public class Player {
 
     private final String[] stageNames = {"Arithmetic", "Geometry", "Algebruh", "Calculus", "Abstract"};
 
-    private int health, attack, defense, mana, totalMana, statsFactor;
+    private int health, attack, defense, mana, totalMana, statsFactor, id;
     private String stage, name, currentStageColor, status, currentStatusColor;
 
-    public Player(int hitpoints, String stage, String name) {
+    public Player(int id, int hitpoints, String stage, String name) {
+        this.id = id;
         this.health = hitpoints;
         this.stage = stage;
         this.name = name;
@@ -61,6 +62,7 @@ public class Player {
         }
     }
 
+    public int getId() { return id; };
     public int getAttack() { return attack; }
     public int getDefense() { return defense; }
     public int getMana() { return mana; }
@@ -72,13 +74,12 @@ public class Player {
     public String getCurrentStatusColor() { return currentStatusColor; }
     public String getName() { return this.name; }
 
-    private void attackPlayer(Player other) {
+    public void attackPlayer(Player other) {
         if (attack > other.getDefense()) {
             other.setHitpoints(attack - other.getDefense());
             bonusMana(statsFactor / 4);
             attackFailed = false;
         } else {
-            other.bonusMana(statsFactor / 4);
             attackFailed = true;
         }
     }

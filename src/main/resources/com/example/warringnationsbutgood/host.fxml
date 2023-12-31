@@ -95,6 +95,7 @@
         <!-- Added content via Java -->
     </GridPane>
 
+
     <GridPane visible="false" translateY="145" translateX="430" alignment="center" fx:id="player" prefHeight="320.0" prefWidth="220.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
         <VBox id="playerActions" prefHeight="280.0" prefWidth="200.0" spacing="10">
 
@@ -107,6 +108,10 @@
             <Button GridPane.rowIndex="4" GridPane.columnIndex="1" onAction="#mana" id="commands">Mana</Button>
             <Button GridPane.rowIndex="1" GridPane.columnIndex="1" onAction="#exit" id="commands">Exit</Button>
         </VBox>
+    </GridPane>
+
+    <GridPane visible="false" fx:id="chooseAttackedPlayer" id="attacking" maxHeight="2.0" maxWidth="2.0">
+        <!-- Added content via Java -->
     </GridPane>
 
     <GridPane visible="false" fx:id="stagesMenu" id="stages" translateY="705" translateX="180">

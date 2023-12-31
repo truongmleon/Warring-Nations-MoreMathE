@@ -52,7 +52,7 @@ public class Controller {
     private Button lobby, back, go;
 
     @FXML
-    private GridPane playerInfo, gameMenu, actionMenu, settingsMenu, stagesMenu, player;
+    private GridPane playerInfo, gameMenu, actionMenu, settingsMenu, stagesMenu, player, chooseAttackedPlayer;
 
     @FXML
     private Text name;
@@ -122,7 +122,17 @@ public class Controller {
 
     @FXML
     private void attack() {
+        GridPane currentPlayers = new GridPane();
+        for (int i = 0; i < playersInfo.size(); i++) {
+            if (currentPlayer.getId() != i) {
+                Button player = new Button(playersInfo.get(i).getName());
+                player.setOnAction(this::playerAttacked);
+                currentPlayers.add(player, i, 0);
+            }
+        }
 
+        chooseAttackedPlayer.getChildren().add(currentPlayers);
+        chooseAttackedPlayer.setVisible(true);
     }
 
     @FXML
@@ -138,6 +148,12 @@ public class Controller {
     @FXML
     private void exit() {
         player.setVisible(false);
+        chooseAttackedPlayer.setVisible(false);
+    }
+
+    private void playerAttacked(ActionEvent event) {
+
+        System.out.println(event.getSource());
     }
 
     private String getProblem(String current) {
@@ -186,11 +202,14 @@ public class Controller {
 
             String message = "mailto:" + emails[i] + subject + "&body=" + createEmailBody(i);
             URI uri = URI.create(message);
+            /*
             try {
                 desktop.mail(uri);
+                return;
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+             */
         }
 
         adminButtons[0].setDisable(true);
@@ -210,9 +229,8 @@ public class Controller {
         Button sourceButton = (Button) event.getSource();
         Robot robot = null;
 
-        try {
-            robot = new Robot();
-        } catch (Exception ignored) { }
+        try { robot = new Robot(); }
+        catch (Exception ignored) { }
 
         for (int i = 0; i < playerButtons.length; i++) {
             if (playerButtons[i].equals((sourceButton))) {
@@ -221,6 +239,7 @@ public class Controller {
             }
         }
 
+        //Assume robot is not null
         robot.mouseMove((int) (GUI.getWidth() / 1.25), (int) (GUI.getHeight() / 1.35));
         name.setText(currentPlayer.getName());
         player.setVisible(true);
@@ -326,7 +345,7 @@ public class Controller {
             Text status;
 
             try {
-                p1 = new Player(startingHitpoints, level, names[j]);
+                p1 = new Player(j, startingHitpoints, level, names[j]);
                 playersInfo.add(p1);
                 button.setText(j + 1 + " - " + names[j]);
                 health = new Text(Integer.toString(p1.getHealth()));
