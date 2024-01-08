@@ -91,7 +91,7 @@
         <!-- Added content via Java -->
     </GridPane>
 
-    <GridPane visible="false" translateX="440" translateY="-150" alignment="center" fx:id="actionMenu" prefWidth="200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <GridPane visible="false" translateX="440" translateY="-170" alignment="center" fx:id="actionMenu" prefWidth="200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
         <!-- Added content via Java -->
     </GridPane>
 
@@ -103,14 +103,15 @@
                 <!-- Added content via Java -->
             </Text>
 
-            <Button GridPane.rowIndex="2" GridPane.columnIndex="1" onAction="#attack" id="commands">Attack</Button>
-            <Button GridPane.rowIndex="3" GridPane.columnIndex="1" onAction="#defend" id="commands">Defend</Button>
-            <Button GridPane.rowIndex="4" GridPane.columnIndex="1" onAction="#mana" id="commands">Mana</Button>
-            <Button GridPane.rowIndex="1" GridPane.columnIndex="1" onAction="#exit" id="commands">Exit</Button>
+            <Button GridPane.rowIndex="2" GridPane.columnIndex="1" onAction="#attack" styleClass="commands">Attack</Button>
+            <Button GridPane.rowIndex="3" GridPane.columnIndex="1" onAction="#defend" styleClass="commands">Defend</Button>
+            <Button GridPane.rowIndex="4" GridPane.columnIndex="1" onAction="#mana" styleClass="commands">Mana</Button>
+            <Button GridPane.rowIndex="5" GridPane.columnIndex="1" onAction="#powerUp" styleClass="commands" id="boost">Boost</Button>
+            <Button GridPane.rowIndex="1" GridPane.columnIndex="1" onAction="#exit" styleClass="commands">Exit</Button>
         </VBox>
     </GridPane>
 
-    <GridPane visible="false" fx:id="chooseAttackedPlayer" id="attacking" maxHeight="2.0" maxWidth="2.0">
+    <GridPane visible="false" fx:id="chooseAttackedPlayer" id="attacking" maxWidth="120.0">
         <!-- Added content via Java -->
     </GridPane>
 

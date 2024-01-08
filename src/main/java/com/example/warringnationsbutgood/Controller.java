@@ -35,6 +35,7 @@ public class Controller {
     private final String[] stages = {"Arithmetic", "Geometry", "Algebruh", "Calculus", "Abstract"};
 
     private Button[] playerButtons, adminButtons;
+    private Button sourceButton;
     private ArrayList<TextField> inputs;
     private ArrayList<Player> playersInfo;
     private GridPane menu = new GridPane();
@@ -97,7 +98,7 @@ public class Controller {
             go.setVisible(false);
             gameTitle.setVisible(false);
             setUp();
-            collectInfo();
+            collectInfo(false);
         } else {
             playersCount = Integer.parseInt(players.getValue());
             startingHitpoints = Integer.parseInt(hitpoints.getValue());
@@ -123,26 +124,45 @@ public class Controller {
     @FXML
     private void attack() {
         GridPane currentPlayers = new GridPane();
+        chooseAttackedPlayer.getChildren().clear();
+
         for (int i = 0; i < playersInfo.size(); i++) {
             if (currentPlayer.getId() != i) {
                 Button player = new Button(playersInfo.get(i).getName());
+                player.getStyleClass().add("attackingPlayers");
+                player.setMinSize(540, 50);
                 player.setOnAction(this::playerAttacked);
-                currentPlayers.add(player, i, 0);
+                currentPlayers.add(player, 0, i);
             }
         }
 
+        chooseAttackedPlayer.setMaxHeight(10 + playersInfo.size() * 10);
         chooseAttackedPlayer.getChildren().add(currentPlayers);
         chooseAttackedPlayer.setVisible(true);
     }
 
     @FXML
     private void defend() {
-
+        currentPlayer.defend();
+        sourceButton.setDisable(true);
+        sourceButton = null;
+        exit();
     }
 
     @FXML
     private void mana() {
+        currentPlayer.useMana();
+        sourceButton.setDisable(true);
+        sourceButton = null;
+        exit();
+    }
 
+    @FXML
+    private void powerUp() {
+        currentPlayer.boost();
+        sourceButton.setDisable(true);
+        sourceButton = null;
+        exit();
     }
 
     @FXML
@@ -150,10 +170,19 @@ public class Controller {
         player.setVisible(false);
         chooseAttackedPlayer.setVisible(false);
     }
-
     private void playerAttacked(ActionEvent event) {
+        String name = ((Button) event.getSource()).getText();
+        sourceButton.setDisable(true);
+        sourceButton = null;
+        exit();
 
-        System.out.println(event.getSource());
+        for (int i = 0; i < playersInfo.size(); i++) {
+            if (Objects.equals(name, playersInfo.get(i).toString())) {
+                Player otherPlayer = playersInfo.get(i);
+                currentPlayer.attackPlayer(otherPlayer);
+                break;
+            }
+        }
     }
 
     private String getProblem(String current) {
@@ -168,6 +197,7 @@ public class Controller {
 
         return problem;
     }
+
     private String createEmailBody(int id) {
         Player currentPlayer = playersInfo.get(id);
         String problem = getProblem(currentPlayer.getStage());
@@ -196,20 +226,19 @@ public class Controller {
         round++;
         //Making Email
         for (int i = 0; i < emails.length; i++) {
-            playerButtons[i].setDisable(false);
+            if (!playersInfo.get(i).getStatus().equals("DEAD")) playerButtons[i].setDisable(false);
+
             Desktop desktop = Desktop.getDesktop();
             String subject = "?subject=WarringNationsRound_" + round;
 
             String message = "mailto:" + emails[i] + subject + "&body=" + createEmailBody(i);
             URI uri = URI.create(message);
-            /*
+
             try {
                 desktop.mail(uri);
-                return;
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-             */
         }
 
         adminButtons[0].setDisable(true);
@@ -219,6 +248,9 @@ public class Controller {
 
     private void calculate(ActionEvent event) {
         //Really just a refresh function. Calculations are done throughout
+        gameMenu.getChildren().clear();
+        actionMenu.getChildren().clear();
+        collectInfo(true);
     }
 
     private void mines(ActionEvent event) {
@@ -226,7 +258,7 @@ public class Controller {
     }
 
     private void playerActions(ActionEvent event) {
-        Button sourceButton = (Button) event.getSource();
+        sourceButton = (Button) event.getSource();
         Robot robot = null;
 
         try { robot = new Robot(); }
@@ -325,7 +357,11 @@ public class Controller {
         }
     }
 
-    private void collectInfo() {
+    private void collectInfo(boolean reset) {
+        gameMenu.getChildren().clear();
+        actionMenu.getChildren().clear();
+        menu.getChildren().clear();
+
         final Button[] buttonTitles = {new Button("Generate"), new Button("Calculate"), new Button("Mines")};
         final Image[] actionIcons = {
                 new Image("https://raw.githubusercontent.com/truongmleon/Warring-Nations-MoreMathEdition/master/src/main/resources/com/example/warringnationsbutgood/assets/icons/buttons/Dove.png", 40, 40, true, false),
@@ -345,8 +381,13 @@ public class Controller {
             Text status;
 
             try {
-                p1 = new Player(j, startingHitpoints, level, names[j]);
-                playersInfo.add(p1);
+                if (reset) {
+                    p1 = playersInfo.get(j);
+                } else {
+                    p1 = new Player(j, startingHitpoints, level, names[j]);
+                    playersInfo.add(p1);
+                }
+
                 button.setText(j + 1 + " - " + names[j]);
                 health = new Text(Integer.toString(p1.getHealth()));
                 currentLevel = new Text(p1.getStage());
