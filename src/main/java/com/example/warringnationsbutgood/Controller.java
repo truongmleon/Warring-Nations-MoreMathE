@@ -429,6 +429,7 @@ public class Controller {
             if (l != 0) {
                 buttonTitles[l].setDisable(true);
             }
+
             buttonTitles[l].setGraphic(actionView[l]);
             adminButtons[l] = buttonTitles[l];
             actions.add(buttonTitles[l], 0, l);
