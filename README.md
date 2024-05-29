@@ -6,6 +6,8 @@ The Math Club community considers the game to be a staple in Math Club culture.
 
 The Math Club advisor suggested to make a reworked version of the game, containing what was missing the most: Math. The student created it in Java, so I will do the same.
 
+The game features a fun math PvP where players answer math questions correctly to gain an advantage.
+
 Attributions:
 
 Inspired by Warring Nations, a created made by Samuel Do.
