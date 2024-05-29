@@ -132,7 +132,7 @@ public class Player {
 
     public void boost() {
         if (!boostUsed) {
-            int extra = manaCalculation.get(stage)[3];
+            int extra = manaCalculation.get(stage)[2];
             attack += extra;
             defense += extra;
             mana += extra;

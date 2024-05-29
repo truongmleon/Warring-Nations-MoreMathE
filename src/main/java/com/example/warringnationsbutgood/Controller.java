@@ -160,9 +160,6 @@ public class Controller {
     @FXML
     private void powerUp() {
         currentPlayer.boost();
-        sourceButton.setDisable(true);
-        sourceButton = null;
-        exit();
     }
 
     @FXML
